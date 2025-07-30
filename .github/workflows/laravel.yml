@@ -33,15 +33,19 @@ jobs:
 
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        working-directory: ./backend
 
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist
+        working-directory: ./backend
 
       - name: Generate key
         run: php artisan key:generate
+        working-directory: ./backend
 
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
+        working-directory: ./backend
 
       - name: Run Tests
         env:
@@ -52,3 +56,4 @@ jobs:
           DB_USERNAME: root
           DB_PASSWORD: root
         run: php artisan test
+        working-directory: ./backend
