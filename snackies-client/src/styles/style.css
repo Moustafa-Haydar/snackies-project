@@ -1,0 +1,38 @@
+.radius-8 {
+    border-radius: 8px;
+}
+
+.radius-16 {
+    border-radius: 16px;
+}
+
+.display-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.display-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.no-border {
+    border: none;
+}
+
+.no-bg {
+    background-color: transparent;
+}
+
+.background {
+    background-color: var(--bg-color);
+    height: 90vh;
+}

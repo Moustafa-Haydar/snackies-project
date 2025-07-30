@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+
+    public function up(): void
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id('order_ID');
+            $table->foreignId('user_ID')->constrained('users', 'user_ID')->onDelete('cascade');
+            $table->enum('status', ['pending', 'processing', 'shipping', 'delivered', 'cancelled'])->default('pending');
+            $table->decimal('total_amount', 5, 2);
+            $table->text('shipping_address');
+            $table->text('payment_info')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('orders');
+    }
+}; 
