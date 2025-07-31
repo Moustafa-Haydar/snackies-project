@@ -1,38 +1,54 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
+.header-text {
+    background-color: var(--bg-color);
+    padding: 5px 5px;
+    text-align: left;
+    font-size: 12px;
+    color: var(--primary-color);
+    height: 22px;
 }
 
-.logo-section .logo-link {
-  display: inline-block;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color); 
+    padding: 15px 30px;
+    color: var(--bg-color);
+    height: 100px;
 }
 
-.logo-section .logo-img {
-  height: 40px;
-  width: auto;
+.logo-section {
+    flex-shrink: 0; 
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
 }
 
 .nav-section {
-  flex-grow: 1;
-  margin-left: 20px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
 }
+
+.nav-section .navbar-link {
+    color: var(--bg-color);
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
 
 .icons-section {
-  display: flex;
-  gap: 15px;
-  font-size: 20px;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 25px; 
+    size:25px; 
+    color: var(--bg-color);
 }
 
-.icons-section svg {
-  fill: white;
-  transition: fill 0.3s ease;
-}
-
-.icons-section svg:hover {
-  fill: #ffcc00;
-}
