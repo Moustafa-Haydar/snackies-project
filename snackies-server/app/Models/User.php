@@ -12,16 +12,14 @@ class User extends Model
     protected $primaryKey = 'user_ID';
 
     protected $fillable = [
-        'f_name',
-        'L_name',
-        'hashedPassword',
+        'first_name',
+        'last_name',
         'email',
-        'phone',
-        'role',
+        'password'
     ];
 
     protected $hidden = [
-        'hashedPassword',
+        'password',
     ];
 
     protected function casts(): array
