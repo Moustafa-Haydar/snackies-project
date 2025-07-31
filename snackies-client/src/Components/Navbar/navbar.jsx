@@ -1,0 +1,28 @@
+import './style.css';
+import { useNavigate} from 'react-router-dom';
+
+const Navbar = () => {
+    const navigate = useNavigate();
+
+  const navLinks = [
+    { name: 'Shop', path: '/shop' },
+    { name: 'Reviews', path: '/reviews' },
+    { name: 'About Us', path: '/about-us' },
+  ];
+
+  return (
+   <nav className="navbar-container">
+      <ul className="navbar-links">
+        {navLinks.map((link) => (
+          <li 
+            key={link.name} 
+            onClick={() => navigate(link.path)}
+          >
+            {link.name}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+export default Navbar;

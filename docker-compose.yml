@@ -1,0 +1,19 @@
+services: 
+  frontend-nabiha:
+    build: ./snackies-client
+    depends_on: 
+      - backend
+    container_name: snackies-frontend
+    ports:
+      - "3000:3000"
+    restart: unless-stopped 
+
+  backend:
+    build: ./snackies-server
+    # depends_on: 
+    #   - database
+    container_name: snackies-backend
+    ports:
+      - "8080:8501"
+    restart: unless-stopped 
+
