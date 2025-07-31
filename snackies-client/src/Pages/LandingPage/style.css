@@ -1,0 +1,204 @@
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.hero-section {
+    width: 100%;
+    background-color: gray;
+    height: 80dvh;
+    justify-content: center;
+    gap: 15%;
+    align-items: center;
+    background-image: url('../../Assets/images/LandingPage/snackies_hero_background.webp');
+}
+
+.hero-section-text {
+    width: 80%;
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 5%;
+    color: var(--primary-color);
+}
+
+.hero-section-subdiv {
+    width: 30%;
+    align-items: start;
+}
+
+.hero-items {
+    width: 33%;
+}
+
+.landing-category-title {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.landing-category-section {
+    background-color: white;
+    height: 60dvh;
+    padding: 3% 0;
+}
+
+.landing-category-card {
+    background-color: var(--bg-color);
+    height: 80%;
+    width: 20%;
+    align-items: center;
+    border: 1px solid var(--secondary-color);
+    border-radius: 20px;
+}
+
+.landing-category-cards-div {
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.product-of-the-day {
+    height: 95dvh;
+}
+
+.product-of-the-day-info {
+    height: 100%;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+    background-color: var(--secondary-color);
+}
+
+.product-of-the-day-title {
+   font-size: 24px;
+    color: var(--text-color);
+}
+
+.product-of-the-day-description {
+    font-size: 18px;
+    width: 60%;
+    height: fit-content;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.product-of-the-day-image {
+    background-color: gray;
+    height: 100%;
+    width: 70%;
+}
+
+.best-sellers {
+    height: 63dvh;
+    background-color: white;
+    padding-top: 3%;
+}
+
+.best-sellers-cards {
+    gap: 4%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.best-sellers-card {
+    height: 60%;
+    width: 13%;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.best-sellers-image {
+    background-color: var(--bg-color);
+    height: 85%;
+    width: 100%;
+}
+
+.best-sellers-title {
+    font-size: 32px;
+    text-wrap: nowrap;
+}
+
+.best-sellers-star-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.best-sellers-scrolling-wrapper {
+    width: 100%;
+    height: 8%;
+}
+
+.best-sellers-scroll-banner-element {
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.landing-reviews {
+    height: 65dvh;
+    padding: 3% 0;
+    background-color: var(--secondary-color);
+    justify-content: center;
+    align-items: center;
+    gap: 0%;
+}
+
+.landing-reviews-section {
+    max-width: 100%;
+    height: 100%;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: transform 0.5s ease-in-out;
+    margin: 4% 0 1%;
+}
+
+.landing-reviews-carousel {
+    align-items: center;
+    max-width: 80%;
+}
+
+.landing-reviews-section::-webkit-scrollbar {
+    display: none;
+}
+
+.landing-review-card {
+    height: 350px;
+    min-width: 350px;
+    background-color: var(--primary-color);
+}
+
+.landing-review-arrows-div {
+    width: 50%;
+    justify-content: space-between;
+}
+
+.landing-review-arrow {
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.landing-review-arrow:hover {
+    cursor: pointer;
+    opacity: 60%;
+}
+
+.landing-review-buttons {
+    background: none;
+    border: none;
+}
