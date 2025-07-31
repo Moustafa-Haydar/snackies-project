@@ -47,9 +47,11 @@ const LandingPage = () => {
           </p>
           <Button btn_name={"View Our Products"} />
         </div>
+
       </div>
 
-      <div className="landing-category-section">
+
+      <div className="landing-category-section test">
         <h1 className="landing-category-title">
           What Are You Hankering For Today?
         </h1>
@@ -109,6 +111,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+
 
       <div className="flex column landing-reviews">
         <h1 className="landing-reviews-title">Reviews</h1>
