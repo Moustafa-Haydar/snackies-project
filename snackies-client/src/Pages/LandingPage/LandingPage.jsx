@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import HeroItems from "../../Assets/images/LandingPage/hero_section_foreground.webp";
 import Button from "../../Components/Button/Button";
 import Marquee from "react-fast-marquee";
+import Slider from "react-slick";
 import starIcon from "../../Assets/icons/star_icon.png";
 import leftArrow from "../../Assets/icons/empty-arrow-left-svgrepo-com.svg";
 import rightArrow from "../../Assets/icons/empty-arrow-right-svgrepo-com.svg";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
 
 const LandingPage = () => {
+  const sliderRef = useRef();
+
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+
   const scrollLeft = () => {
     console.log("Scroll Left");
+    sliderRef.current.slickPrev();
   };
 
   const scrollRight = () => {
     console.log("Scroll Right");
+    sliderRef.current.slickNext();
   };
 
   return (
@@ -95,36 +111,48 @@ const LandingPage = () => {
       </div>
 
       <div className="flex column landing-reviews">
-        <h1>Reviews</h1>
+        <h1 className="landing-reviews-title">Reviews</h1>
 
-        <div className="flex column center landing-reviews-carousel">
-          <div className="flex landing-reviews-section">
-            <div className="landing-review-card">Temp Review Card</div>
+        <div className="slider-container">
+          <Slider ref={sliderRef} {...carouselSettings}>
+            <div className="flex review-card-div">
+              <h1>Test</h1>
+            </div>
 
-            <div className="landing-review-card">Temp Review Card</div>
+            <div className="flex review-card-div">
+              <h1>Test</h1>
+            </div>
 
-            <div className="landing-review-card">Temp Review Card</div>
+            <div className="flex review-card-div">
+              <h1>Test</h1>
+            </div>
 
-            <div className="landing-review-card">Temp Review Card</div>
-          </div>
+            <div className="flex review-card-div">
+              <h1>Test</h1>
+            </div>
 
-          <div className="flex landing-review-arrows-div">
-            <button className="landing-review-buttons" onClick={scrollLeft}>
-              <img
-                className="landing-review-arrow"
-                src={leftArrow}
-                alt="left arrow"
-              ></img>
-            </button>
+            <div className="flex review-card-div">
+              <h1>Test</h1>
+            </div>
+          </Slider>
+        </div>
 
-            <button className="landing-review-buttons" onClick={scrollRight}>
-              <img
-                className="landing-review-arrow"
-                src={rightArrow}
-                alt="right arrow"
-              ></img>
-            </button>
-          </div>
+        <div className="flex landing-review-arrows-div">
+          <button className="landing-review-buttons" onClick={scrollLeft}>
+            <img
+              className="landing-review-arrow"
+              src={leftArrow}
+              alt="left arrow"
+            ></img>
+          </button>
+
+          <button className="landing-review-buttons" onClick={scrollRight}>
+            <img
+              className="landing-review-arrow"
+              src={rightArrow}
+              alt="right arrow"
+            ></img>
+          </button>
         </div>
       </div>
     </div>
