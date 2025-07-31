@@ -1,0 +1,38 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.logo-section .logo-link {
+  display: inline-block;
+}
+
+.logo-section .logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-section {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.icons-section {
+  display: flex;
+  gap: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.icons-section svg {
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+.icons-section svg:hover {
+  fill: #ffcc00;
+}
