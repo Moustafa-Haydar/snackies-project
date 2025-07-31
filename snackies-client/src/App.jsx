@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './Pages/LandingPage/LandingPage';
 import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 
@@ -12,7 +13,7 @@ function App() {
       <Routes>
 
         {/* Public Routes */}
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<LandingPage />} />
 
 
         {/* Protected Routes */}
