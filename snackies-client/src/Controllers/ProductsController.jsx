@@ -8,7 +8,7 @@ class ProductsController {
       const products = response.data.payload;
       setProducts(products);
 
-      // debug
+      // debug debug
       console.log(products);
 
     } catch (error) {
