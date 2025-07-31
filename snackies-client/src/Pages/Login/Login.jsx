@@ -4,19 +4,19 @@ import Button from '../../Components/Button/Button';
 import Input from '../../Components/Input/Input';
 import AuthController from'../../Controllers/AuthController';
 import './style.css';
-import { TokenContext } from '../../Contexts/TokenContext';
+// import { TokenContext } from '../../Contexts/TokenContext';
 
 const Login = () => {
 
-    const [ tokenState, saveToken, clearToken ] = useContext(TokenContext);
+    // const [ tokenState, saveToken, clearToken ] = useContext(TokenContext);
     const navigate = useNavigate();
     const [ResponseMessage, setResponseMessage] = useState();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    useEffect (() => {
-        console.log(tokenState);
-    }, );
+    // useEffect (() => {
+    //     console.log(tokenState);
+    // }, );
 
     const handlelogin = async () => {
         
