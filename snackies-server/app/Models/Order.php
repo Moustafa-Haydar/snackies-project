@@ -29,4 +29,11 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'user_ID', 'user_ID');
     }
+
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'order_items')
+                    ->withPivot('quantity', 'price_at_purchase')
+                    ->withTimestamps();
+    }
 }

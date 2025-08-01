@@ -38,13 +38,15 @@ class User extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function carts()
+    public function cart()
     {
-        return $this->hasMany(Cart::class);
+        return $this->hasOne(Cart::class);
     }
 
     public function notifications()
     {
-        return $this->hasMany(Notification::class);
+        return $this->belongsToMany(Notification::class, 'user_notifications')
+                    ->withPivot('read_at')
+                    ->withTimestamps();
     }
 }
