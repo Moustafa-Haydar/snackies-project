@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttachmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Common\AuthController;
@@ -32,4 +33,7 @@ Route::group(["prefix" => "v0.1"], function () {
         Route::post("/register", [AuthController::class, "register"]);
     });
 
+    Route::group(["prefix" => "test"], function () {
+        Route::post("/upload_image", [AttachmentController::class, "uploadImage"]);
+    });
 });
