@@ -10,10 +10,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('user_ID');
-            $table->string('f_name');
-            $table->string('L_name');
-            $table->string('hashedPassword');
+            $table->id();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('password');
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->enum('role', ['admin', 'user'])->default('user');
@@ -22,10 +22,10 @@ return new class extends Migration
 
 
 
-        
+
     }
 
- 
+
     public function down(): void
     {
         Schema::dropIfExists('users');

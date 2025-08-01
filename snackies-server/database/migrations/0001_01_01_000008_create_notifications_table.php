@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->id('notification_ID');
-            $table->foreignId('user_ID')->constrained('users', 'user_ID')->onDelete('cascade');
+            $table->id();
+            $table->integer('user_id');
             $table->string('type');
             $table->string('title');
             $table->text('message');
@@ -29,4 +29,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('notifications');
     }
-}; 
+};

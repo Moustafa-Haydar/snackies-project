@@ -9,17 +9,15 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'category_ID';
-
     protected $fillable = [
         'name',
         'description',
-        'image',
+        'image_url',
     ];
 
     // Relationships
     public function items()
     {
-        return $this->hasMany(Item::class, 'CATEGORY_ID', 'category_ID');
+        return $this->hasMany(Item::class);
     }
-} 
+}
