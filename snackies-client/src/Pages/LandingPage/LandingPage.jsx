@@ -36,8 +36,6 @@ const LandingPage = () => {
 
   return (
     <div>
-      <ImageUpload />
-      
       <div className="flex hero-section">
         <img className="hero-items" src={HeroItems} alt="Assorted Items"></img>
 
