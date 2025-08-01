@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Navbar from '../Navbar';
+import Navbar from '../Navbar/navbar';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
