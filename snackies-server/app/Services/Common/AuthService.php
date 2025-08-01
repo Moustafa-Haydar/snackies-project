@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthService
 {
 
-    static public function login(Request $request)
+    public static function login(Request $request)
     {
         $request->validate([
             'email' => 'required|string|email',
@@ -36,7 +36,7 @@ class AuthService
         return $user;
     }
 
-    static public function register(Request $request)
+    public static function register(Request $request)
     {
 
         $request->validate([
