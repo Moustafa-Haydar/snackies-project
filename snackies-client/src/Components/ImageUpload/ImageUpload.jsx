@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import Button from "../Button/Button";
-import axios from "axios";
+import ProductsController from "../../Controllers/ProductsController";
 
 const ImageUpload = () => {
   const [base64, set64] = useState();
@@ -9,6 +9,7 @@ const ImageUpload = () => {
   const uploadImage = () => {
     console.log("uploading image");
     console.log(base64);
+    ProductsController.uploadImage(base64);
   };
 
   const convert64 = (file) => {
@@ -22,7 +23,7 @@ const ImageUpload = () => {
       set64(base64String);
     };
 
-    set64(reader.readAsDataURL(file));
+    reader.readAsDataURL(file);
   };
 
   return (
