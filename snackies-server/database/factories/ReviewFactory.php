@@ -34,23 +34,14 @@ class ReviewFactory extends Factory
             'Perfect for snacking, love the flavor!',
             'Great taste and texture, highly recommend!',
             'Excellent product, will definitely buy again.',
+            'It was awful, never gonna buy this again.'
         ];
-        
+
         return [
-            'item_ID' => Item::factory(),
-            'user_ID' => User::factory(),
+            'item_id' => Item::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
             'text' => fake()->randomElement($positiveReviews),
             'rating' => fake()->numberBetween(4, 5),
         ];
     }
-
-    /**
-     * Indicate that the review has a specific rating.
-     */
-    public function rating(int $rating): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'rating' => $rating,
-        ]);
-    }
-} 
+}
