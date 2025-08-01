@@ -12,6 +12,7 @@ import Header from '../../Components/Header/Header';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
+import ImageUpload from "../../Components/ImageUpload/ImageUpload";
 
 const LandingPage = () => {
   const sliderRef = useRef();
@@ -51,9 +52,7 @@ const LandingPage = () => {
           </p>
           <Button btn_name={"View Our Products"} />
         </div>
-
       </div>
-
 
       <div className="landing-category-section test">
         <h1 className="landing-category-title">
@@ -115,7 +114,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
 
       <div className="flex column landing-reviews">
         <h1 className="landing-reviews-title">Reviews</h1>
