@@ -9,12 +9,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id('item_ID');
-            $table->foreignId('CATEGORY_ID')->constrained('categories', 'category_ID')->onDelete('cascade');
+            $table->id();
+            $table->int('category_id');
             $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('price', 5, 2);
-            $table->string('image')->nullable();
             $table->integer('stock')->default(0);
             $table->timestamps();
         });
@@ -24,4 +23,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('items');
     }
-}; 
+};

@@ -10,8 +10,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id('order_ID');
-            $table->foreignId('user_ID')->constrained('users', 'user_ID')->onDelete('cascade');
+            $table->id();
+            $table->int('user_id');
             $table->enum('status', ['pending', 'processing', 'shipping', 'delivered', 'cancelled'])->default('pending');
             $table->decimal('total_amount', 5, 2);
             $table->text('shipping_address');
@@ -24,4 +24,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('orders');
     }
-}; 
+};
