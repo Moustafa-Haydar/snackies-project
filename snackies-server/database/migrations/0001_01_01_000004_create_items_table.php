@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->int('category_id');
+            $table->integer('category_id');
             $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('price', 5, 2);
