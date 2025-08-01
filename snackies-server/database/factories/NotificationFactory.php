@@ -43,9 +43,9 @@ class NotificationFactory extends Factory
 
         $allNotifications = array_merge($orderNotifications, $promoNotifications, $systemNotifications);
         $notification = fake()->randomElement(array_keys($allNotifications));
-        
+
         return [
-            'user_ID' => User::factory(),
+            'user_id' => User::inRandomOrder()->first()->id,
             'type' => $this->getNotificationType($notification),
             'title' => $notification,
             'message' => $allNotifications[$notification],
@@ -67,89 +67,4 @@ class NotificationFactory extends Factory
         }
     }
 
-    /**
-     * Indicate that the notification is an order notification.
-     */
-    public function order(): static
-    {
-        return $this->state(function (array $attributes) {
-            $orderNotifications = [
-                'Order Shipped' => 'Your order has been shipped and is on its way!',
-                'Order Delivered' => 'Your order has been delivered successfully!',
-                'Order Processing' => 'Your order is being processed and will ship soon.',
-            ];
-
-            $notification = fake()->randomElement(array_keys($orderNotifications));
-
-            return [
-                'type' => 'order',
-                'title' => $notification,
-                'message' => $orderNotifications[$notification],
-            ];
-        });
-    }
-
-    /**
-     * Indicate that the notification is a promotional notification.
-     */
-    public function promo(): static
-    {
-        return $this->state(function (array $attributes) {
-            $promoNotifications = [
-                'Special Offer' => 'Get 20% off your next purchase with code SAVE20!',
-                'Flash Sale' => 'Flash sale! 50% off all items for the next 2 hours!',
-                'New Arrivals' => 'Check out our new arrivals - fresh snacks just in!',
-            ];
-
-            $notification = fake()->randomElement(array_keys($promoNotifications));
-
-            return [
-                'type' => 'promo',
-                'title' => $notification,
-                'message' => $promoNotifications[$notification],
-            ];
-        });
-    }
-
-    /**
-     * Indicate that the notification is a system notification.
-     */
-    public function system(): static
-    {
-        return $this->state(function (array $attributes) {
-            $systemNotifications = [
-                'Welcome' => 'Welcome to Snackies! Enjoy your shopping experience.',
-                'Account Updated' => 'Your account information has been updated successfully.',
-                'Email Verified' => 'Your email address has been verified.',
-            ];
-
-            $notification = fake()->randomElement(array_keys($systemNotifications));
-
-            return [
-                'type' => 'system',
-                'title' => $notification,
-                'message' => $systemNotifications[$notification],
-            ];
-        });
-    }
-
-    /**
-     * Indicate that the notification is read.
-     */
-    public function read(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'read_at' => fake()->dateTimeBetween('-1 week', 'now'),
-        ]);
-    }
-
-    /**
-     * Indicate that the notification is unread.
-     */
-    public function unread(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'read_at' => null,
-        ]);
-    }
-} 
+}

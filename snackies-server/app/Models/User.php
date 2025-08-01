@@ -9,8 +9,6 @@ class User extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'user_ID';
-
     protected $fillable = [
         'first_name',
         'last_name',
@@ -32,21 +30,21 @@ class User extends Model
     // Relationships
     public function orders()
     {
-        return $this->hasMany(Order::class, 'user_ID', 'user_ID');
+        return $this->hasMany(Order::class);
     }
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'user_ID', 'user_ID');
+        return $this->hasMany(Review::class);
     }
 
     public function carts()
     {
-        return $this->hasMany(Cart::class, 'user_ID', 'user_ID');
+        return $this->hasMany(Cart::class);
     }
 
     public function notifications()
     {
-        return $this->hasMany(Notification::class, 'user_ID', 'user_ID');
+        return $this->hasMany(Notification::class);
     }
 }

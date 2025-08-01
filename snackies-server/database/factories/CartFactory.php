@@ -19,29 +19,9 @@ class CartFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_ID' => User::factory(),
-            'item_ID' => Item::factory(),
+            'user_id' => User::inRandomOrder()->first()->id,
+            'item_id' => Item::inRandomOrder()->first()->id,
             'quantity' => fake()->numberBetween(1, 5),
         ];
     }
-
-    /**
-     * Indicate that the cart has a specific quantity.
-     */
-    public function quantity(int $quantity): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'quantity' => $quantity,
-        ]);
-    }
-
-    /**
-     * Indicate that the cart has a large quantity.
-     */
-    public function largeQuantity(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'quantity' => fake()->numberBetween(5, 10),
-        ]);
-    }
-} 
+}

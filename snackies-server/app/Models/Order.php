@@ -9,10 +9,8 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'order_ID';
-
     protected $fillable = [
-        'user_ID',
+        'user_id',
         'status',
         'total_amount',
         'shipping_address',
@@ -31,4 +29,4 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'user_ID', 'user_ID');
     }
-} 
+}

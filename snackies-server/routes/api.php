@@ -1,9 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Http\Controllers\User\MediaController;
-use App\Http\Controllers\User\CapsuleController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Common\AuthController;
 
 
@@ -12,8 +10,12 @@ Route::group(["prefix" => "v0.1"], function () {
 
         //AUTHENTICATED APIs
         Route::group(["prefix" => "user"], function () {
+            // Route::get("/items", [ItemController::class, "getAllItems"]);
+            // Route::get("/item_by_id", [ItemController::class, "getItemById"]);
+            // Route::get("/product_of_the_day", [ItemController::class, "getProductOfTheDay"]);
 
-
+            // Route::get("/items", [ItemController::class, "getAllItems"]);
+            // Route::get("/items", [ItemController::class, "getAllItems"]);
         });
 
         Route::group(["prefix" => "admin"], function () {
