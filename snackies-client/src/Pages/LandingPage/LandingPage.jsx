@@ -6,6 +6,8 @@ import Slider from "react-slick";
 import starIcon from "../../Assets/icons/star_icon.png";
 import leftArrow from "../../Assets/icons/empty-arrow-left-svgrepo-com.svg";
 import rightArrow from "../../Assets/icons/empty-arrow-right-svgrepo-com.svg";
+import Navbar from '../../Components/Navbar/navbar';
+import Header from '../../Components/Header/Header';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -36,6 +38,8 @@ const LandingPage = () => {
 
   return (
     <div>
+      <Header/>
+
       <div className="flex hero-section">
         <img className="hero-items" src={HeroItems} alt="Assorted Items"></img>
 
