@@ -9,11 +9,9 @@ class Cart extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'cart_ID';
-
     protected $fillable = [
-        'user_ID',
-        'item_ID',
+        'user_id',
+        'item_id',
         'quantity',
     ];
 
@@ -27,11 +25,11 @@ class Cart extends Model
     // Relationships
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_ID', 'user_ID');
+        return $this->belongsTo(User::class);
     }
 
     public function item()
     {
-        return $this->belongsTo(Item::class, 'item_ID', 'item_ID');
+        return $this->belongsTo(Item::class);
     }
-} 
+}
