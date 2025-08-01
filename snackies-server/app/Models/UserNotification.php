@@ -5,14 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class UserNotification extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
+        'notification_id',
+        'read_at',
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'read_at' => 'datetime',
+        ];
+    }
 
     // Relationships
     public function user()
@@ -20,10 +28,8 @@ class Cart extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function items()
+    public function notification()
     {
-        return $this->belongsToMany(Item::class, 'cart_items')
-                    ->withPivot('quantity')
-                    ->withTimestamps();
+        return $this->belongsTo(Notification::class);
     }
-}
+} 

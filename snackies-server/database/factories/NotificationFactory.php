@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -45,11 +44,9 @@ class NotificationFactory extends Factory
         $notification = fake()->randomElement(array_keys($allNotifications));
 
         return [
-            'user_id' => User::inRandomOrder()->first()->id,
             'type' => $this->getNotificationType($notification),
             'title' => $notification,
             'message' => $allNotifications[$notification],
-            'read_at' => fake()->optional(0.3)->dateTimeBetween('-1 week', 'now'),
         ];
     }
 
@@ -66,5 +63,4 @@ class NotificationFactory extends Factory
             return 'system';
         }
     }
-
 }

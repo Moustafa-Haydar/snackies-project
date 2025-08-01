@@ -10,23 +10,17 @@ class Notification extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
         'type',
         'title',
         'message',
-        'read_at',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'read_at' => 'datetime',
-        ];
-    }
 
     // Relationships
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class, 'user_notifications')
+                    ->withPivot('read_at')
+                    ->withTimestamps();
     }
 }

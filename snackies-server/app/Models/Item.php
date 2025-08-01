@@ -38,11 +38,15 @@ class Item extends Model
 
     public function carts()
     {
-        return $this->hasMany(Cart::class);
+        return $this->belongsToMany(Cart::class, 'cart_items')
+                    ->withPivot('quantity')
+                    ->withTimestamps();
     }
 
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsToMany(Order::class, 'order_items')
+                    ->withPivot('quantity', 'price_at_purchase')
+                    ->withTimestamps();
     }
 }
