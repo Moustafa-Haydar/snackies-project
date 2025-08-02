@@ -3,9 +3,9 @@ import HeroItems from "../../Assets/images/LandingPage/hero_section_foreground.w
 import Button from "../../Components/Button/Button";
 import Marquee from "react-fast-marquee";
 import Slider from "react-slick";
-import starIcon from "../../Assets/icons/star_icon.png";
-import leftArrow from "../../Assets/icons/empty-arrow-left-svgrepo-com.svg";
-import rightArrow from "../../Assets/icons/empty-arrow-right-svgrepo-com.svg";
+import starIcon from "../../Assets/Icons/star_icon.png";
+import leftArrow from "../../Assets/Icons/empty-arrow-left-svgrepo-com.svg";
+import rightArrow from "../../Assets/Icons/empty-arrow-right-svgrepo-com.svg";
 import Header from '../../Components/Header/Header';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
