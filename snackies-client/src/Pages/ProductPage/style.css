@@ -3,13 +3,25 @@
     height: 88dvh;
 }
 
-.product-page-image {
+.product-page-image-div {
     background-color: var(--bg-color);
     width: 60%;
     justify-content: center;
     align-items: center;
 }
 
+.product-page-image {
+    max-width: 70%;
+    height: 70%;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
 .product-page-info {
     border-left: 1px solid black;
+    justify-content: start;
+    align-items: start;
+    max-width: 38%;
+    padding: 4%;
+    gap: 8%;
 }
