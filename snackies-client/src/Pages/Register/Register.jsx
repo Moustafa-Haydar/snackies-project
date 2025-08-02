@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import Input from '../../Components/Input/Input';
 import AuthController from'../../Controllers/AuthController';
+import Header from '../../Components/Header/Header';
 import './style.css';
 
 const Register = () => {
@@ -26,6 +27,10 @@ const Register = () => {
     }
 
     return ( 
+        
+        <div>
+            
+        <Header/>
 
         <div className='register-container background display-column'>
 
@@ -82,11 +87,17 @@ const Register = () => {
                 <div className="register-btn">
                     <Button btn_name="Register" type='primary'
                         onClick={handleRegister}/>
-                    <p>Already have an acount? <span className='register-login-link'>Login</span></p>
+                    <p>Already have an acount? 
+                        <span className='register-login-link'
+                        onClick={() => navigate('/login')}>Login</span>
+                    </p>
                 </div>
 
             </div>
 
+        </div>
+
+        
         </div>
 
      );
