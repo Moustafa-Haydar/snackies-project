@@ -9,14 +9,11 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'item_ID';
-
     protected $fillable = [
-        'CATEGORY_ID',
+        'category_id',
         'name',
         'description',
         'price',
-        'image',
         'stock',
     ];
 
@@ -31,21 +28,25 @@ class Item extends Model
     // Relationships
     public function category()
     {
-        return $this->belongsTo(Category::class, 'CATEGORY_ID', 'category_ID');
+        return $this->belongsTo(Category::class);
     }
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'item_ID', 'item_ID');
+        return $this->hasMany(Review::class);
     }
 
     public function carts()
     {
-        return $this->hasMany(Cart::class, 'item_ID', 'item_ID');
+        return $this->belongsToMany(Cart::class, 'cart_items')
+                    ->withPivot('quantity')
+                    ->withTimestamps();
     }
 
     public function orders()
     {
-        return $this->hasMany(Order::class, 'item_ID', 'item_ID');
+        return $this->belongsToMany(Order::class, 'order_items')
+                    ->withPivot('quantity', 'price_at_purchase')
+                    ->withTimestamps();
     }
-} 
+}

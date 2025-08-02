@@ -10,7 +10,6 @@ class CartSeeder extends Seeder
 
     public function run(): void
     {
-        // Create 15 random cart items using factory
-        \App\Models\Cart::factory(15)->create();
+        Cart::factory(15)->create();
     }
-} 
+}

@@ -3,52 +3,70 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends Model
+class User extends Authenticatable implements JWTSubject
 {
-    use HasFactory;
-
-    protected $primaryKey = 'user_ID';
+    use HasFactory, Notifiable;
 
     protected $fillable = [
-        'f_name',
-        'L_name',
-        'hashedPassword',
+        'first_name',
+        'last_name',
         'email',
-        'phone',
-        'role',
+        'password'
     ];
 
     protected $hidden = [
-        'hashedPassword',
+        'password',
+        'remember_token',
     ];
 
-    protected function casts(): array
+    public function getJWTIdentifier()
     {
-        return [
-            'role' => 'string',
-        ];
+        return $this->getKey();
     }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    // protected function casts(): array
+    // {
+    //     return [
+    //         'role' => 'string',
+    //     ];
+    // }
 
     // Relationships
-    public function orders()
-    {
-        return $this->hasMany(Order::class, 'user_ID', 'user_ID');
-    }
+    // public function orders()
+    // {
+    //     return $this->hasMany(Order::class);
+    // }
 
-    public function reviews()
-    {
-        return $this->hasMany(Review::class, 'user_ID', 'user_ID');
-    }
+    // public function reviews()
+    // {
+    //     return $this->hasMany(Review::class);
+    // }
 
-    public function carts()
-    {
-        return $this->hasMany(Cart::class, 'user_ID', 'user_ID');
-    }
+    // public function cart()
+    // {
+    //     return $this->hasOne(Cart::class);
+    // }
 
-    public function notifications()
-    {
-        return $this->hasMany(Notification::class, 'user_ID', 'user_ID');
-    }
+    // public function notifications()
+    // {
+    //     return $this->belongsToMany(Notification::class, 'user_notifications')
+    //                 ->withPivot('read_at')
+    //                 ->withTimestamps();
+    // }
 }

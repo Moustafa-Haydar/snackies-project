@@ -11,6 +11,6 @@ class OrderSeeder extends Seeder
     public function run(): void
     {
         // Create 8 random orders using factory
-        \App\Models\Order::factory(8)->create();
+        Order::factory(8)->create();
     }
-} 
+}

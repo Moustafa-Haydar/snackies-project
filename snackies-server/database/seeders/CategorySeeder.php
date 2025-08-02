@@ -13,19 +13,19 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => 'Cheese',
             'description' => 'Delicious cheese snacks and treats',
-            'image' => 'categories/cheese.jpg',
+            'image_url' => 'categories/cheese.jpg',
         ]);
 
         Category::create([
             'name' => 'Chocolatey',
             'description' => 'Sweet chocolate treats and candies',
-            'image' => 'categories/chocolatey.jpg',
+            'image_url' => 'categories/chocolatey.jpg',
         ]);
 
         Category::create([
             'name' => 'Nutty',
             'description' => 'Crunchy nuts and nut-based snacks',
-            'image' => 'categories/nutty.jpg',
+            'image_url' => 'categories/nutty.jpg',
         ]);
     }
-} 
+}

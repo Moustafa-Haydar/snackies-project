@@ -9,29 +9,21 @@ class Cart extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'cart_ID';
-
     protected $fillable = [
-        'user_ID',
-        'item_ID',
-        'quantity',
+        'user_id',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'quantity' => 'integer',
-        ];
-    }
 
     // Relationships
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_ID', 'user_ID');
+        return $this->belongsTo(User::class);
     }
 
-    public function item()
+    public function items()
     {
-        return $this->belongsTo(Item::class, 'item_ID', 'item_ID');
+        return $this->belongsToMany(Item::class, 'cart_items')
+                    ->withPivot('quantity')
+                    ->withTimestamps();
     }
-} 
+}

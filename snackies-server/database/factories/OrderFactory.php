@@ -35,8 +35,8 @@ class OrderFactory extends Factory
         ];
 
         return [
-            'user_ID' => User::factory(),
-            'status' => fake()->randomElement(['pending', 'processing', 'shipped', 'delivered', 'cancelled']),
+            'user_id' => User::inRandomOrder()->first()->id,
+            'status' => fake()->numberBetween(1, 5),
             'total_amount' => fake()->randomFloat(2, 5.00, 50.00),
             'shipping_address' => fake()->randomElement($lebaneseAddresses),
             'payment_info' => fake()->randomElement($paymentInfo),
@@ -80,4 +80,4 @@ class OrderFactory extends Factory
             'status' => 'cancelled',
         ]);
     }
-} 
+}

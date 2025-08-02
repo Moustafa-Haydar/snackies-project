@@ -9,11 +9,9 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'reviewID';
-
     protected $fillable = [
-        'item_ID',
-        'user_ID',
+        'item_id',
+        'user_id',
         'text',
         'rating',
     ];
@@ -28,11 +26,11 @@ class Review extends Model
     // Relationships
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_ID', 'user_ID');
+        return $this->belongsTo(User::class);
     }
 
     public function item()
     {
-        return $this->belongsTo(Item::class, 'item_ID', 'item_ID');
+        return $this->belongsTo(Item::class);
     }
-} 
+}

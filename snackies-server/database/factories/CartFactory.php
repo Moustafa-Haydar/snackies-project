@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Item;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,29 +18,7 @@ class CartFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_ID' => User::factory(),
-            'item_ID' => Item::factory(),
-            'quantity' => fake()->numberBetween(1, 5),
+            'user_id' => User::inRandomOrder()->first()->id,
         ];
     }
-
-    /**
-     * Indicate that the cart has a specific quantity.
-     */
-    public function quantity(int $quantity): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'quantity' => $quantity,
-        ]);
-    }
-
-    /**
-     * Indicate that the cart has a large quantity.
-     */
-    public function largeQuantity(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'quantity' => fake()->numberBetween(5, 10),
-        ]);
-    }
-} 
+}

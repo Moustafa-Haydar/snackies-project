@@ -10,6 +10,6 @@ class ReviewSeeder extends Seeder
     public function run(): void
     {
         // Create 10 positive reviews using the factory
-        \App\Models\Review::factory(10)->create();
+        Review::factory(10)->create();
     }
-} 
+}

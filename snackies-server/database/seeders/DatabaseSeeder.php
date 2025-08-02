@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
             ReviewSeeder::class,
             NotificationSeeder::class,
+            CartItemSeeder::class,
+            OrderItemSeeder::class,
+            UserNotificationSeeder::class,
         ]);
     }
 }
