@@ -1,15 +1,16 @@
 import React from 'react';
 import './style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import starRegular from '../../Assets/Icons/star-regular-full.svg';
+import starSolid from '../../Assets/Icons/star-solid-full.svg';
 
-const StarRating = ({ rating, totalStars = 5 }) => { 
+const StarRating = ({ rating, totalStars = 5 }) => {
   return (
     <div className="star-rating-container">
-      {...Array.from({ length: totalStars }).map((item, index) => (
-        <FontAwesomeIcon
-          key={index} 
-          icon={index + 1 <= Math.floor(rating) ? "fa-solid fa-star" : "fa-regular fa-star"}
-          className="star-icon"
+      {Array.from({ length: totalStars }).map((item, index) => (
+        <img
+          key={index}
+          src={index <= rating ? starSolid : starRegular}
+          alt={index <= rating ? 'Filled star' : 'Empty star'}
         />
       ))}
     </div>
