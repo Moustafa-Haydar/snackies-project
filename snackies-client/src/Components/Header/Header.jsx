@@ -1,14 +1,15 @@
-import React from 'react';
+import React , {useContext} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../Navbar/navbar.jsx';
 import './style.css';
 import userIcon from '../../Assets/Icons/user.svg';
 import cartIcon from '../../Assets/Icons/cart-shopping.svg';
 import snackiesLogo from '../../Assets/logos/snackies-logo-orange-nobg.webp';
+import { TokenContext } from '../../Contexts/TokenContext.jsx';
 
 const Header = () => {
     const navigate = useNavigate();
-
+    const { tokenState } = useContext(TokenContext);
 
     return (
         <header className="header-section">
@@ -24,10 +25,15 @@ const Header = () => {
                 <div className='nav-section'>
                     <Navbar/>
                 </div>
+
                 <div className='icons-section'>
-                    <img src={userIcon} alt="userIcon" onClick={() => navigate('/login')}/>
-                    <img src={cartIcon} alt="cartIcon" onClick={() => navigate('/cart')} />
+                    <img src={userIcon} alt="userIcon" 
+                        onClick={() => navigate(tokenState? '/profile' : '/login')}/>
+                    <img src={cartIcon} alt="cartIcon" 
+                        onClick={() => navigate(tokenState? '/cart' : '/login')} />
                  </div>
+
+
             </div>
         </header>
     );
