@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Common\AuthController;
 use App\Http\Controllers\Admin\AttachmentController;
+use App\Http\Controllers\User\CartController;
 
 Route::group(["prefix" => "v0.1"], function () {
     Route::group(["middleware" => "auth:api"], function () {
@@ -34,5 +35,6 @@ Route::group(["prefix" => "v0.1"], function () {
 
     Route::group(["prefix" => "test"], function () {
         Route::post("/upload_image", [AttachmentController::class, "uploadImage"]);
+        Route::post("/add_to_cart", [CartController::class, "addToCart"]);
     });
 });

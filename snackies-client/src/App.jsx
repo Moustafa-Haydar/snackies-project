@@ -15,7 +15,7 @@ function App() {
 
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
-        <Route path="/product" element={<ProductPage />} />
+        <Route path="/product" element={<ProductPage productName={"Snack Mix"} productRating={"5"} productPrice={"2.99$"} productDetails={"lorem ipsum dolorem lorem ipsum dolorem lorem ipsum dolorem lorem ipsum dolorem lorem ipsum dolorem"}/>} />
 
 
         {/* Protected Routes */}
