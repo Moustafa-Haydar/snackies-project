@@ -4,12 +4,14 @@ class ProductsController {
   static async getAllProducts(setProducts) {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/v0.1/shop/products"
+        "http://127.0.0.1:8000/api/v0.1/guest/items"
       );
       const products = response.data.payload;
 
       if (response.status === 200) {
         setProducts(products);
+      }else{
+            console.error('Error fetching products:', response.data);
       }
 
     } catch (error) {

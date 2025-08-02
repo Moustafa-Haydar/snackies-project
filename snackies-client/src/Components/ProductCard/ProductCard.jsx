@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import './style.css';
-import starRating from './starRating';
+import StarRating from '../StarReview/StarReview';
 
 const ProductCard = (productID, productName, productPrice, productRating, productImage) => {
     const navigate = useNavigate;
@@ -16,7 +16,7 @@ const ProductCard = (productID, productName, productPrice, productRating, produc
                 <img src={productImage} alt={productImage} />
             </div>    
             <div className="product-details">
-                <starRating rating={productRating} />
+                <StarRating rating={productRating} />
                 <h3 className="product-name">{productName}</h3>
                 <p className="product-price">${productPrice}</p>
             </div>
