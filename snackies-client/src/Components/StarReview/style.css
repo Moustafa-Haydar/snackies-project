@@ -3,9 +3,5 @@
   align-items: center;
   justify-content: center; 
   gap: 10px;
-}
-
-.star-icon {
-  color: var(--secondary-color);
-  font-size: 20px; 
+  width: 25px;
 }
