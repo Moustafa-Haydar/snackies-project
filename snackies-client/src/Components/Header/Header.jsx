@@ -9,6 +9,7 @@ import snackiesLogo from '../../Assets/logos/snackies-logo-orange-nobg.webp';
 const Header = () => {
     const navigate = useNavigate();
 
+    
     return (
         <header className="header-section">
             <div className='header-text'>
