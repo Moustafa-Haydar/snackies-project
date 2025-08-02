@@ -10,10 +10,8 @@ class ProductsController {
 
       if (response.status === 200) {
         setProducts(products);
-
-        // debug debug
-        console.log(products);
       }
+
     } catch (error) {
       console.log(error);
     }
@@ -28,11 +26,11 @@ class ProductsController {
           item_id: 0,
         }
       );
-
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
   }
+
 }
+
 export default ProductsController;

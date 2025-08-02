@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Common\AuthController;
@@ -11,12 +12,9 @@ Route::group(["prefix" => "v0.1"], function () {
 
         //AUTHENTICATED APIs
         Route::group(["prefix" => "user"], function () {
-            // Route::get("/items", [ItemController::class, "getAllItems"]);
-            // Route::get("/item_by_id", [ItemController::class, "getItemById"]);
-            // Route::get("/product_of_the_day", [ItemController::class, "getProductOfTheDay"]);
-
-            // Route::get("/items", [ItemController::class, "getAllItems"]);
-            // Route::get("/items", [ItemController::class, "getAllItems"]);
+            Route::get("/items", [ItemController::class, "getAllItems"]);
+            Route::get("/item_by_id", [ItemController::class, "getItemById"]);
+            Route::get("/product_of_the_day", [ItemController::class, "getProductOfTheDay"]);
         });
 
         Route::group(["prefix" => "admin"], function () {
@@ -29,6 +27,13 @@ Route::group(["prefix" => "v0.1"], function () {
 
     //UNAUTHENTICATED APIs
     Route::group(["prefix" => "guest"], function () {
+
+        Route::get("/items/{id?}", [ItemController::class, "getAllItems"]);
+        Route::get("/product_of_the_day", [ItemController::class, "getProductOfTheDay"]);
+      
+        Route::post("/add_to_cart", [CartController::class, "addToCart"]);
+        Route::post("/upload_image", [AttachmentController::class, "uploadImage"]);
+
         Route::post("/login", [AuthController::class, "login"]);
         Route::post("/register", [AuthController::class, "register"]);
 
@@ -38,9 +43,7 @@ Route::group(["prefix" => "v0.1"], function () {
         // Route::get("/place_order/{id}", [OrderController::class, "placeOrder"]);
         // The ID being passed here is the user ID, since every user only has one cart, so get that user's cart based on their id, then turn it into an order
     });
-
-    Route::group(["prefix" => "test"], function () {
-        Route::post("/upload_image", [AttachmentController::class, "uploadImage"]);
-        Route::post("/add_to_cart", [CartController::class, "addToCart"]);
-    });
+        
+        
 });
+
