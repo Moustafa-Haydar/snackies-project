@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\User\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Common\AuthController;
-use App\Http\Controllers\Common\ItemController;
-
+use App\Http\Controllers\Admin\AttachmentController;
 
 Route::group(["prefix" => "v0.1"], function () {
     Route::group(["middleware" => "auth:api"], function () {
@@ -26,6 +26,11 @@ Route::group(["prefix" => "v0.1"], function () {
 
     //UNAUTHENTICATED APIs
     Route::group(["prefix" => "guest"], function () {
+
+        Route::get("/items/{id?}", [ItemController::class, "getAllItems"]);
+      
+        Route::post("/upload_image", [AttachmentController::class, "uploadImage"]);
+
         Route::post("/login", [AuthController::class, "login"]);
         Route::post("/register", [AuthController::class, "register"]);
         
@@ -34,5 +39,6 @@ Route::group(["prefix" => "v0.1"], function () {
         Route::get("/item_by_id", [ItemController::class, "getItemById"]);
         Route::get("/product_of_the_day", [ItemController::class, "getProductOfTheDay"]);
     });
+
 });
 

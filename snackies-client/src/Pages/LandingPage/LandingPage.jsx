@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import starIcon from "../../Assets/icons/star_icon.png";
 import leftArrow from "../../Assets/icons/empty-arrow-left-svgrepo-com.svg";
 import rightArrow from "../../Assets/icons/empty-arrow-right-svgrepo-com.svg";
-
+import Header from '../../Components/Header/Header';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
@@ -35,6 +35,8 @@ const LandingPage = () => {
 
   return (
     <div>
+      <Header/>
+
       <div className="flex hero-section">
         <img className="hero-items" src={HeroItems} alt="Assorted Items"></img>
 
@@ -47,9 +49,7 @@ const LandingPage = () => {
           </p>
           <Button btn_name={"View Our Products"} />
         </div>
-
       </div>
-
 
       <div className="landing-category-section test">
         <h1 className="landing-category-title">
@@ -111,7 +111,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
 
       <div className="flex column landing-reviews">
         <h1 className="landing-reviews-title">Reviews</h1>

@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Common;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\common\AuthService;
+use App\Http\Requests\StoreUserRequest;
+
 use App\Traits\ResponseTrait;
 
 class AuthController extends Controller
@@ -19,7 +19,7 @@ class AuthController extends Controller
         return $this->responseJSON(null, "error", 401);
     }
 
-    public function register(Request $request)
+    public function register(StoreUserRequest $request)
     {
         $user = AuthService::register($request);
         return $this->responseJSON($user);

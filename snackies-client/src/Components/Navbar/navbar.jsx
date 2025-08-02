@@ -1,5 +1,5 @@
 import './style.css';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -15,10 +15,11 @@ const Navbar = () => {
       <ul className="navbar-links">
         {navLinks.map((link) => (
           <li 
-            key={link.name} 
-            onClick={() => navigate(link.path)}
+            key={link.name}
           >
-            {link.name}
+             <Link to={link.path} className="nav-link-item">
+              {link.name}
+            </Link>
           </li>
         ))}
       </ul>

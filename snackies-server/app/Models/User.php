@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+
+class User extends Authenticatable implements JWTSubject
 {
-    use HasFactory, HasApiTokens;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
         'first_name',
@@ -19,35 +22,51 @@ class User extends Authenticatable
 
     protected $hidden = [
         'password',
+        'remember_token',
     ];
 
-    protected function casts(): array
+    public function getJWTIdentifier()
     {
-        return [
-            'role' => 'string',
-        ];
+        return $this->getKey();
     }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    // protected function casts(): array
+    // {
+    //     return [
+    //         'role' => 'string',
+    //     ];
+    // }
 
     // Relationships
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
+    // public function orders()
+    // {
+    //     return $this->hasMany(Order::class);
+    // }
 
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
-    }
+    // public function reviews()
+    // {
+    //     return $this->hasMany(Review::class);
+    // }
 
-    public function cart()
-    {
-        return $this->hasOne(Cart::class);
-    }
+    // public function cart()
+    // {
+    //     return $this->hasOne(Cart::class);
+    // }
 
-    public function notifications()
-    {
-        return $this->belongsToMany(Notification::class, 'user_notifications')
-                    ->withPivot('read_at')
-                    ->withTimestamps();
-    }
+    // public function notifications()
+    // {
+    //     return $this->belongsToMany(Notification::class, 'user_notifications')
+    //                 ->withPivot('read_at')
+    //                 ->withTimestamps();
+    // }
 }

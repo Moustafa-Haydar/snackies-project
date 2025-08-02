@@ -1,9 +1,10 @@
-import React, {useState, useEffect, useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import {useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import Input from '../../Components/Input/Input';
 import AuthController from'../../Controllers/AuthController';
 import './style.css';
+import Header from '../../Components/Header/Header';
 // import { TokenContext } from '../../Contexts/TokenContext';
 
 const Login = () => {
@@ -23,7 +24,7 @@ const Login = () => {
         const new_user = { email, password };
 
         try {
-            const result =  await AuthController.login({new_user, navigate});
+            await AuthController.login({new_user, navigate});
         } catch (error) {
             setResponseMessage(error.message || "Login failed. Please try again.");
         }
@@ -31,8 +32,15 @@ const Login = () => {
 
     return ( 
 
+        <div>
+            
+        <Header/>
+
+
+        
         <div className='login-container background display-column'>
 
+            
             <div className="login">
 
                 <h1 className='login-title'>Login</h1>
@@ -66,11 +74,16 @@ const Login = () => {
                     <div className="login-btn">
                         <Button btn_name="Login" type='primary'
                             onClick={handlelogin}/>
-                        <p>Don't have an account? <span className='register-register-link'>Register</span></p>
+                        <p>Don't have an account? 
+                            <span className='register-register-link'
+                            onClick={() => navigate('/register')}>Register</span>
+                            </p>
                     </div>
 
             </div>
 
+        </div>
+        
         </div>
 
      );
