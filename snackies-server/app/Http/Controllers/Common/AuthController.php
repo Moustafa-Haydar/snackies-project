@@ -10,7 +10,7 @@ use App\Traits\ResponseTrait;
 
 class AuthController extends Controller
 {
-
+    use ResponseTrait;
     public function login(Request $request)
     {
         $user = AuthService::login($request);
