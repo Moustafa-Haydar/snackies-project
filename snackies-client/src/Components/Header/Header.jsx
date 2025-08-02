@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../Navbar/navbar.jsx';
 import './style.css';
-import userIcon from '../../Assets/icons/circle-user-solid-full.svg';
-import cartIcon from '../../Assets/icons/cart-shopping-solid-full.svg';
+import userIcon from '../../Assets/icons/user.svg';
+import cartIcon from '../../Assets/icons/cart-shopping.svg';
 import snackiesLogo from '../../Assets/logos/snackies-logo-orange-nobg.webp';
 
 const Header = () => {
