@@ -5,8 +5,8 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   width: 360px;
-  height: 505px;
 }
 
 .product-card:hover {
@@ -31,6 +31,9 @@
   padding: 5px 1px;
   background-color: var(--primary-color);
   text-align: center;
+  border-bottom-right-radius: var(--radius);
+  border-bottom-left-radius:var(--radius) ;
+  line-height: 50px;
 }
 
 .product-name {
