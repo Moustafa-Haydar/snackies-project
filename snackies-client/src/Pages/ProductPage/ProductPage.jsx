@@ -64,7 +64,7 @@ const ProductPage = ({
           <div className="flex column product-page-info-title">
             <h1>{productName}</h1>
 
-            <p>{productName}</p>
+            <p>{productRating}</p>
           </div>
 
           <h3 className="product-page-info-price">{productPrice}</h3>
