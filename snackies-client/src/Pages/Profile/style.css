@@ -1,0 +1,45 @@
+
+.profile { 
+    width: 100%;
+    background-color: var(--bg-color);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.account-container {
+    width: 80%;
+    height: 85vh;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid red;
+}
+
+.account-inner-container {
+    height: 65vh;
+    width: 70%;
+    
+    border: 2px solid black;
+}
+
+
+.account-container-left {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5vh;
+    justify-content: center;
+
+}
+
+.account-container-right {
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+    gap: 5vh;
+    padding: 10vw;
+}
+
+.account-container-right-title {
+    align-items: center;
+}
