@@ -19,6 +19,8 @@ const Login = () => {
         
         const user = { email, password };
 
+
+        
         try {
             await AuthController.login({user, saveToken, navigate, url: '/'});
         } catch (error) {
