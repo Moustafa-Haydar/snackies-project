@@ -1,24 +1,33 @@
-.header-text {
-    background-color: var(--bg-color);
-    padding: 5px 5px;
-    text-align: left;
-    font-size: 12px;
-    color: var(--primary-color);
-    height: 22px;
-}
-
-.header {
+.header-section {
+    background-color: var(--primary-color);
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color); 
-    padding: 15px 30px;
     color: var(--bg-color);
     height: 100px;
 }
+.header-text {
+    background-color: var(--bg-color); 
+    padding:0px;
+    text-align: left;
+    font-size: 12px;
+    color: var(--primary-color);
+    width: 100%;
+    display: flex;
+    align-items: left;
+}
+.header-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding:20px;
+}
 
 .logo-section {
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .logo-link {
@@ -29,26 +38,15 @@
     height: 40px;
 }
 
-.nav-section {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.nav-section .navbar-link {
-    color: var(--bg-color);
-    text-decoration: none;
-    font-size: 20px;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-}
-
-
 .icons-section {
     display: flex;
     align-items: center;
-    gap: 25px; 
-    size:25px; 
-    color: var(--bg-color);
+    gap: 25px;
+    color: var(--secondary-color);
 }
 
+.icons-section img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}

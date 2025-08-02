@@ -1,30 +1,32 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Navbar from '../Navbar/navbar';
+import Navbar from '../Navbar/navbar.jsx';
 import './style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import userIcon from '../../Assets/icons/circle-user-solid-full.svg';
+import cartIcon from '../../Assets/icons/cart-shopping-solid-full.svg';
+
 
 const Header = () => {
     const navigate = useNavigate();
 
     return (
-        <header>
+        <header className="header-section">
             <div className='header-text'>
                 <p>A snack a day keeps the hunger away!</p>
             </div>
-            <div className='header'>
+            <div className='header-content'>
                 <div className='logo-section'>
                     <Link className='logo-link' to="/">
-                        <img src="images/logo.jpg" alt="logo" className='logo-img'/>
+                        <img src="../../Assets/logos/snackies-logo-orange-nobg.webp" alt="logo" className='logo-img'/>
                     </Link>
                 </div>
                 <div className='nav-section'>
                     <Navbar/>
                 </div>
                 <div className='icons-section'>
-                    <FontAwesomeIcon icon="fa-solid fa-circle-user" onClick={() => navigate('/login')} />
-                    <FontAwesomeIcon icon="fa-solid fa-cart-shopping" onClick={() => navigate('/cart')} />
-                </div>
+                    <img src={userIcon} alt="userIcon" onClick={() => navigate('/login')}/>
+                     <img src={cartIcon} alt="cartIcon" onClick={() => navigate('/cart')} />
+                 </div>
             </div>
         </header>
     );
