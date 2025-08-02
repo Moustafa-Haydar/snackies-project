@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
 import ImageUpload from "../../Components/ImageUpload/ImageUpload";
+import Footer from "../../Components/Footer/Footer";
 
 const LandingPage = () => {
   const sliderRef = useRef();
@@ -160,6 +161,8 @@ const LandingPage = () => {
           </button>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
