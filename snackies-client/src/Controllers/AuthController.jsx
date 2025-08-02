@@ -2,19 +2,20 @@ import axios from "axios";
 
 class AuthController {
 
-    static async login({ user, setToken, navigate, url}) {
+    static async login({ user, saveToken, navigate, url}) {
 
          try {
+
             const response = await axios
             .post("http://127.0.0.1:8000/api/v0.1/guest/login", user);
 
             const user_token = response.data.payload.token;               
-            setToken(user_token);
+            saveToken(user_token);
             navigate(url);
 
         } catch (error) {
             const message ="Login failed. Please try again.";
-            console.log(error.response);
+            console.log(error.response.data);
             throw new Error(message);
         }
     }
