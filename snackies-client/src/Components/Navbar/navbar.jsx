@@ -1,8 +1,7 @@
 import './style.css';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    const navigate = useNavigate();
 
   const navLinks = [
     { name: 'Shop', path: '/shop' },

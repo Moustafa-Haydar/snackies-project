@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useRef } from "react";
 import HeroItems from "../../Assets/images/LandingPage/hero_section_foreground.webp";
 import Button from "../../Components/Button/Button";
 import Marquee from "react-fast-marquee";
@@ -10,7 +10,7 @@ import Header from '../../Components/Header/Header';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
-import ImageUpload from "../../Components/ImageUpload/ImageUpload";
+// import ImageUpload from "../../Components/ImageUpload/ImageUpload";
 import Footer from "../../Components/Footer/Footer";
 
 // required code to use token provider

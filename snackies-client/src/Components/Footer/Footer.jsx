@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import snackiesLogo from '../../Assets/logos/snackies-logo-orange-nobg.webp';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Footer = () =>{
     return(
