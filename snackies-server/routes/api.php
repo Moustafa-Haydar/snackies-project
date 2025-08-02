@@ -32,6 +32,8 @@ Route::group(["prefix" => "v0.1"], function () {
         Route::post("/login", [AuthController::class, "login"]);
         Route::post("/register", [AuthController::class, "register"]);
 
+        Route::post("/add_to_cart", [CartController::class, "addToCart"]);
+
         // Route::get("/get_cart/{id}", [CartController::class, "getCartByUserId"]);
         // ID being passed is user ID, get their cart
 
@@ -41,6 +43,6 @@ Route::group(["prefix" => "v0.1"], function () {
 
     Route::group(["prefix" => "test"], function () {
         Route::post("/upload_image", [AttachmentController::class, "uploadImage"]);
-        Route::post("/add_to_cart", [CartController::class, "addToCart"]);
+
     });
 });
