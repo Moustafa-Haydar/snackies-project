@@ -5,8 +5,11 @@ import Button from "../../Components/Button/Button";
 import CartController from "../../Controllers/CartController";
 import favFull from "../../Assets/icons/heart-solid-full.svg";
 import favEmpty from "../../Assets/icons/heart-regular-full.svg";
+import giftFull from "../../Assets/icons/square-solid-full.svg";
+import giftEmpty from "../../Assets/icons/square-regular-full.svg";
 
 import "./style.css";
+import ProductButton from "../../Components/ProductButton/ProductButton";
 
 const ProductPage = ({
   productId,
@@ -16,8 +19,8 @@ const ProductPage = ({
   productPrice,
   productDetails,
 }) => {
-    const [favorite, setFavorite] = useState(favEmpty);
-    const [gift, setGift] = useState();
+  const [favorite, setFavorite] = useState(favEmpty);
+  const [gift, setGift] = useState(giftEmpty);
 
   const addItemCart = () => {
     console.log("adding this item to cart");
@@ -26,13 +29,23 @@ const ProductPage = ({
 
   const addFavorite = () => {
     if (favorite == favEmpty) {
-        console.log("Adding this item to favorites");
-        setFavorite(favFull);
+      console.log("Adding this item to favorites");
+      setFavorite(favFull);
     } else {
-        console.log("Removing Item from Favorites");
-        setFavorite(favEmpty);
+      console.log("Removing Item from Favorites");
+      setFavorite(favEmpty);
     }
-  }
+  };
+
+  const addGift = () => {
+    if (gift == giftEmpty) {
+      console.log("This is a gift");
+      setGift(giftFull);
+    } else {
+      console.log("This is not a gift");
+      setGift(giftEmpty);
+    }
+  };
 
   return (
     <div>
@@ -59,14 +72,17 @@ const ProductPage = ({
           <Button btn_name={"Add to Cart"} onClick={addItemCart} />
 
           <div className="flex column product-page-info-buttons">
-            <button onClick={addFavorite}>
-              <div className="flex">
-                <img className="product-page-icon" src={favorite} alt="Favorite this item"></img>
-                <p>Add to Favorites</p>
-              </div>
-            </button>
+            <ProductButton
+              buttonIcon={favorite}
+              buttonText={"Favorite this Item"}
+              onClick={addFavorite}
+            />
 
-            <p>This is a gift</p>
+            <ProductButton
+              buttonIcon={gift}
+              buttonText={"This is a gift"}
+              onClick={addGift}
+            />
           </div>
 
           <div>

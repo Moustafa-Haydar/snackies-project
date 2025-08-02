@@ -1,0 +1,20 @@
+.product-page-info-buttons div {
+    text-wrap: nowrap;
+    gap: 10%;
+    align-items: center;
+    padding-bottom: 4%;
+}
+
+.product-page-info-buttons p {
+    font-size: 14px;
+}
+
+.product-page-info-buttons button {
+  background: none;
+  border: none;
+}
+
+.product-page-info-buttons button:hover {
+    cursor: pointer;
+    opacity: 70%;
+}

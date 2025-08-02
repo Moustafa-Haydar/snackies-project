@@ -39,26 +39,6 @@
     width: 100%;
 }
 
-.product-page-info-buttons div {
-    text-wrap: nowrap;
-    gap: 10%;
-    align-items: center;
-}
-
-.product-page-info-buttons p {
-    font-size: 14px;
-}
-
-.product-page-info-buttons button {
-  background: none;
-  border: none;
-}
-
-.product-page-info-buttons button:hover {
-    cursor: pointer;
-    opacity: 70%;
-}
-
 .product-page-icon {
   width: 24px;
   height: 24px;
