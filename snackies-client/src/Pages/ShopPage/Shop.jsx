@@ -82,7 +82,7 @@ const Shop = () => {
                 onSelect={FilterProductsByPrice}
                 />
             </div> */}
-            <div ProductCard="products-container">
+            <div className="products-container">
                 {products.map(product => (
                 <ProductCard
                 key={product.id}
