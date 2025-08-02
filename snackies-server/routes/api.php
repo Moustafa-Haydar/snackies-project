@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Common\AuthController;
@@ -28,6 +29,9 @@ Route::group(["prefix" => "v0.1"], function () {
 
     //UNAUTHENTICATED APIs
     Route::group(["prefix" => "guest"], function () {
+
+        Route::get("/items/{id?}", [ItemController::class, "getAllItems"]);
+
         Route::post("/login", [AuthController::class, "login"]);
         Route::post("/register", [AuthController::class, "register"]);
     });
