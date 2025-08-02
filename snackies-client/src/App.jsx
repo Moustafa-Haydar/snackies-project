@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProductPage from './Pages/ProductPage/ProductPage';
 import LandingPage from './Pages/LandingPage/LandingPage';
 import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
@@ -14,6 +15,7 @@ function App() {
 
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
+        <Route path="/product" element={<ProductPage />} />
 
 
         {/* Protected Routes */}
