@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import './styles/index.css';
 import './styles/style.css';
 import './styles/variables.css';
+import UserCart from './Pages/UserCart/UserCart';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/product" 
             element={<ProductPage productName={"Snack Mix"} productRating={"5"} productPrice={"2.99$"} productDetails={"lorem ipsum dolorem lorem ipsum dolorem lorem ipsum dolorem lorem ipsum dolorem lorem ipsum dolorem"}/>} />
+        <Route path="/cart" element={<UserCart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <></>
