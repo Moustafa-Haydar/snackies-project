@@ -11,7 +11,7 @@ const CartItem = ({ itemImage, itemTitle, itemQuantity, removeItem, itemPrice })
 
             <h4>{itemQuantity}</h4>
 
-            <h4>{itemPrice}</h4>
+            <h4>${itemPrice}</h4>
             
             <button className='remove-cart-item'>Remove</button>
         </div>
