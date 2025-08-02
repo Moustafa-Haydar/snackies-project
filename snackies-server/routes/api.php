@@ -4,10 +4,12 @@ use App\Http\Controllers\User\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Common\AuthController;
+use App\Http\Controllers\Common\CategoryController;
 use App\Http\Controllers\Admin\AttachmentController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\UserController;
+
 
 Route::group(["prefix" => "v0.1"], function () {
     Route::group(["middleware" => "auth:api"], function () {
@@ -32,6 +34,8 @@ Route::group(["prefix" => "v0.1"], function () {
 
         Route::get("/items/{id?}", [ItemController::class, "getAllItems"]);
         Route::get("/product_of_the_day", [ItemController::class, "getProductOfTheDay"]);
+
+        Route::get("/categories/{id?}",[CategoryController::class,"getCategories"]);
 
         Route::post("/add_to_cart", [CartController::class, "addToCart"]);
         Route::post("/upload_image", [AttachmentController::class, "uploadImage"]);
