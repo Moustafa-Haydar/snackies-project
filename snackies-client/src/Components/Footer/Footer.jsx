@@ -1,15 +1,17 @@
 import React from 'react';
 import './style.css';
+import snackiesLogo from '../../Assets/logos/snackies-logo-orange-nobg.webp';
 import { Link, useNavigate } from 'react-router-dom'
 
 const Footer = () =>{
-    const navigate= useNavigate();
-        return(
-            <footer className='footer-container'>
-                <div className='main-footer'>
+    return(
+        <footer className='footer-container'>
+            <div className='main-footer'>
                 <div className='about-us-section'>
                     <h3><Link to="/about-us">About</Link></h3>
-                    <img src="logo" alt="snackies-logo" className='footer-logo'/>
+                     <Link className='logo-link' to="/">
+                        <img src={snackiesLogo} alt="logo" className='logo-img'/>
+                    </Link>
                     <p>Learn more about our mission, and some frequently asked questions!</p>
                 </div>
                 <div className=' shop-section'>
@@ -30,11 +32,8 @@ const Footer = () =>{
                     <Link to='/cart'>Cart</Link>
                     <Link to='/checkout'>Checkout</Link>
                 </div>
-                </div>
-                <div className='logo-section'>
-                    <h1 className='logo-section-footer'>Snackies</h1>
-                </div>
-            </footer>
-        );
+            </div>
+        </footer>
+    );
 }
 export default Footer;
