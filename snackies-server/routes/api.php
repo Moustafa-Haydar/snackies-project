@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Common\AuthController;
 use App\Http\Controllers\Admin\AttachmentController;
 use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\OrderController;
 
 Route::group(["prefix" => "v0.1"], function () {
     Route::group(["middleware" => "auth:api"], function () {
@@ -37,10 +38,10 @@ Route::group(["prefix" => "v0.1"], function () {
         Route::post("/login", [AuthController::class, "login"]);
         Route::post("/register", [AuthController::class, "register"]);
 
-        // Route::get("/get_cart/{id}", [CartController::class, "getCartByUserId"]);
+        Route::get("/get_cart/{id}", [CartController::class, "getCartByUserId"]);
         // ID being passed is user ID, get their cart
 
-        // Route::get("/place_order/{id}", [OrderController::class, "placeOrder"]);
+        Route::get("/place_order/{id}", [OrderController::class, "placeOrder"]);
         // The ID being passed here is the user ID, since every user only has one cart, so get that user's cart based on their id, then turn it into an order
     });
 
