@@ -8,6 +8,21 @@ use Illuminate\Http\Request;
 
 class CartService
 {
+  
+    public static function getCartByUserId(Request $request, $id)
+    {
+        // Get cart by user ID
+        $cart = Cart::with(['items'])
+                   ->where('user_id', $id)
+                   ->first();
+        
+        if (!$cart) {
+            return null;
+        }
+
+        return $cart;
+    }
+  
     public static function addItemToCart (Request $request) {
         if (!Cart::where('user_id', $request->user_id)->exists()) {
             $cart = new Cart();
@@ -29,4 +44,5 @@ class CartService
 
         return $cartItem;
     }
+  
 }
