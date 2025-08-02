@@ -22,7 +22,7 @@ class AuthController {
 
     static async register({ new_user, navigate }) {
         try {
-            const response = await axios.post(
+            await axios.post(
                 "http://127.0.0.1:8000/api/v0.1/guest/register",
                 new_user
             );

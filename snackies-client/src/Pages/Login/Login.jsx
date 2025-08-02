@@ -1,4 +1,4 @@
-import {useState, useContext, useEffect } from 'react';
+import {useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import Input from '../../Components/Input/Input';
@@ -19,6 +19,8 @@ const Login = () => {
         
         const user = { email, password };
 
+
+        
         try {
             await AuthController.login({user, saveToken, navigate, url: '/'});
         } catch (error) {

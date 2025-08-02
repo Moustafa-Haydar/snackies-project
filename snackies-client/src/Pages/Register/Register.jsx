@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import Input from '../../Components/Input/Input';
 import AuthController from'../../Controllers/AuthController';
@@ -20,7 +20,7 @@ const Register = () => {
         const new_user = { first_name, last_name, email, password };
 
         try {
-            const result =  await AuthController.register({new_user, navigate});
+            await AuthController.register({new_user, navigate});
         } catch (error) {
             setResponseMessage(error.message || "Register failed. Please try again.");
         }

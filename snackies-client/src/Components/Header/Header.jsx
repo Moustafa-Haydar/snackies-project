@@ -2,13 +2,13 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../Navbar/navbar.jsx';
 import './style.css';
-import userIcon from '../../Assets/Icons/circle-user-solid-full.svg';
-import cartIcon from '../../Assets/Icons/cart-shopping-solid-full.svg';
+import userIcon from '../../Assets/Icons/user.svg';
+import cartIcon from '../../Assets/Icons/cart-shopping.svg';
 import snackiesLogo from '../../Assets/logos/snackies-logo-orange-nobg.webp';
-
 
 const Header = () => {
     const navigate = useNavigate();
+
 
     return (
         <header className="header-section">
