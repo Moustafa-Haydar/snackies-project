@@ -7,6 +7,7 @@ use App\Http\Controllers\Common\AuthController;
 use App\Http\Controllers\Admin\AttachmentController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\OrderController;
+use App\Http\Controllers\User\UserController;
 
 Route::group(["prefix" => "v0.1"], function () {
     Route::group(["middleware" => "auth:api"], function () {
@@ -43,6 +44,9 @@ Route::group(["prefix" => "v0.1"], function () {
 
         Route::get("/place_order/{id}", [OrderController::class, "placeOrder"]);
         // The ID being passed here is the user ID, since every user only has one cart, so get that user's cart based on their id, then turn it into an order
+
+        Route::get("/users/{id?}", [UserController::class, "getUsers"]);
+        // Optional parameter: if ID is provided, get specific user; otherwise get all users
     });
 
 
