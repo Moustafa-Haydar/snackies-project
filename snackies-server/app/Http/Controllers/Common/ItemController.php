@@ -19,6 +19,12 @@ class ItemController extends Controller
                         ->orderBy('created_at', 'desc')
                         ->get();
 
+            // Add review scores to each item
+            $items->each(function ($item) {
+                $item->average_rating = $item->average_rating;
+                $item->review_count = $item->review_count;
+            });
+
             return $this->responseJSON($items, "Items retrieved successfully");
         } catch (\Exception $e) {
             return $this->responseJSON(null, "Error retrieving items: " . $e->getMessage(), 500);
@@ -34,6 +40,10 @@ class ItemController extends Controller
 
             $item = Item::with(['category', 'reviews'])
                        ->findOrFail($request->item_id);
+
+            // Add review scores
+            $item->average_rating = $item->average_rating;
+            $item->review_count = $item->review_count;
 
             return $this->responseJSON($item, "Item retrieved successfully");
         } catch (\Exception $e) {
@@ -53,6 +63,10 @@ class ItemController extends Controller
             if (!$productOfTheDay) {
                 return $this->responseJSON(null, "No products available", 404);
             }
+
+            // Add review scores
+            $productOfTheDay->average_rating = $productOfTheDay->average_rating;
+            $productOfTheDay->review_count = $productOfTheDay->review_count;
 
             return $this->responseJSON($productOfTheDay, "Product of the day retrieved successfully");
         } catch (\Exception $e) {

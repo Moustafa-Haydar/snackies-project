@@ -49,4 +49,17 @@ class Item extends Model
                     ->withPivot('quantity', 'price_at_purchase')
                     ->withTimestamps();
     }
+
+    // Get average review score
+    public function getAverageRatingAttribute()
+    {
+        $average = $this->reviews()->avg('rating') ?? 0;
+        return round($average);
+    }
+
+    // Get review count
+    public function getReviewCountAttribute()
+    {
+        return $this->reviews()->count();
+    }
 }
