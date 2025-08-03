@@ -34,14 +34,40 @@ class ReviewFactory extends Factory
             'Perfect for snacking, love the flavor!',
             'Great taste and texture, highly recommend!',
             'Excellent product, will definitely buy again.',
-            'It was awful, never gonna buy this again.'
         ];
 
+        $negativeReviews = [
+            'It was awful, never gonna buy this again.',
+            'Terrible taste, completely disappointed.',
+            'Waste of money, would not recommend.',
+            'Poor quality, very unsatisfied.',
+            'Bad experience, product was stale.',
+            'Not worth the price at all.',
+            'Disappointing flavor, expected better.',
+            'Low quality product, avoid this.',
+            'Terrible packaging, product was damaged.',
+            'Not fresh at all, very disappointed.',
+            'Awful taste, couldn\'t finish it.',
+            'Poor value for money, not recommended.',
+            'Bad quality, would not buy again.',
+            'Disappointing product, waste of money.',
+            'Terrible experience, avoid this product.',
+        ];
+
+        $allReviews = array_merge($positiveReviews, $negativeReviews);
+        
+        $rating = fake()->randomElement([
+            fake()->numberBetween(1, 3),
+            fake()->numberBetween(4, 5), 
+            fake()->numberBetween(4, 5),
+            fake()->numberBetween(4, 5),
+        ]);
+
         return [
-            'item_id' => Item::inRandomOrder()->first()->id,
-            'user_id' => User::inRandomOrder()->first()->id,
-            'text' => fake()->randomElement($positiveReviews),
-            'rating' => fake()->numberBetween(4, 5),
+            'item_id' => fake()->numberBetween(1, 50), // 50 items
+            'user_id' => fake()->numberBetween(1, 10), // 10 users
+            'text' => fake()->randomElement($allReviews),
+            'rating' => $rating,
         ];
     }
 }
