@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import './style.css';
+import image from '../../Assets/CategoryCards/Cheesy.png'
 
 const CategoryCard =({imageSrc, categoryName, onClick, type="outline"})=>{
     return (
