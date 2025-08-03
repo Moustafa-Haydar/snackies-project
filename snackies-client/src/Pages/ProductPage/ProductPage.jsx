@@ -6,7 +6,7 @@ import Button from "../../Components/Button/Button";
 
 import heartFull from "../../Assets/Icons/heart-solid.svg";
 import heartEmpty from "../../Assets/Icons/heart-outline.svg";
-import giftFull from "../../Assets/Icons/square-solid.svg";
+import giftFull from "../../Assets/Icons/square-solid.svg"; 
 import giftEmpty from "../../Assets/Icons/square-outline.svg";
 
 import { TokenContext } from "../../Contexts/TokenContext";
@@ -29,18 +29,16 @@ const ProductPage = ({
   const [ favIcon, setFavIcon ] = useState(heartEmpty);
   const [ giftIcon, setGiftIcon ] = useState(giftEmpty);
 
+  const currentProduct = JSON.parse(localStorage.getItem("currentProduct"));
+
   useEffect( () => {
         TokenController.decodeToken(tokenState, setUserState);
     }, [tokenState]);
 
   const addItemCart = () => {
-    console.log("adding this item to cart");
-    CartController.addItemToCart(productId, userState.id);
+    console.log("Adding this item to cart");
+    CartController.addItemToCart(currentProduct.productId, userState.id);
   };
-
-  const test = () => {
-    console.log("test");
-  }
 
   const swapFav = () => {
     if (favIcon == heartEmpty) {
@@ -70,19 +68,19 @@ const ProductPage = ({
         <div className="flex product-page-image-div">
           <img
             className="product-page-image"
-            src={productImage}
+            src={currentProduct.productImage}
             alt="Product"
           ></img>
         </div>
 
         <div className="flex column product-page-info">
           <div className="flex column product-page-info-title">
-            <h1>{productName}</h1>
+            <h1>{currentProduct.productName}</h1>
 
-            <StarRating rating={productRating} />
+            <StarRating rating={currentProduct.productRating} />
           </div>
 
-          <h3 className="product-page-info-price">{productPrice}</h3>
+          <h3 className="product-page-info-price">${currentProduct.productPrice}</h3>
 
           <Button btn_name={"Add to Cart"} onClick={addItemCart} />
 
@@ -101,7 +99,7 @@ const ProductPage = ({
           <div>
             <h4>Product Details</h4>
 
-            <p>{productDetails}</p>
+            <p>{currentProduct.productDetails}</p>
           </div>
         </div>
       </div>

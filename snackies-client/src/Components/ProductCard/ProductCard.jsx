@@ -7,7 +7,12 @@ const ProductCard = ({productId, productName, productPrice, productRating, produ
     const navigate = useNavigate();
 
     const handleCardClick =()=>{
-        navigate(`/product/${productId}`);
+        const productDetails = {
+            productId, productName, productPrice, productRating, productImage
+        }
+        
+        localStorage.setItem("currentProduct", JSON.stringify(productDetails));
+        navigate(`/product`);
     };
 
     return (
