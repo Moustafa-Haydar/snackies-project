@@ -4,6 +4,8 @@ import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import CheckoutCardInput from "../../Components/CheckoutCardInput/CheckoutCardInput";
+import headerIcon from "../../Assets/Icons/card-header-icon.svg";
+import cardBrands from "../../Assets/Icons/credit-cards.svg";
 
 const Checkout = () => {
   return (
@@ -18,19 +20,39 @@ const Checkout = () => {
 
           <div className="flex checkout-page-inner-inner">
             <section className="flex column checkout-payment-card">
-              <div className="flex payment-card-header"></div>
+              <div className="flex payment-card-header">
+                <article className="flex">
+                  <img className="header-icon" src={headerIcon} alt="Card Header"></img>
+
+                  <h3>Cards</h3>
+                </article>
+
+                <img className="card-icon" src={cardBrands} alt="Brands"></img>
+              </div>
 
               <div className="flex flex-center payment-card-body">
                 <article className="flex column payment-card-details">
-                  <CheckoutCardInput label={"Card Number"} inputWidth={"wide-input"} />
+                  <CheckoutCardInput
+                    label={"Card Number"}
+                    inputWidth={"wide-input"}
+                  />
 
                   <div className="flex">
-                    <CheckoutCardInput label={"Expiry Date"} inputWidth={"narrow-input"} />
+                    <CheckoutCardInput
+                      label={"Expiry Date"}
+                      inputWidth={"narrow-input"}
+                    />
 
-                    <CheckoutCardInput label={"CVC/CVV"} inputWidth={"narrow-input"} />
+                    <CheckoutCardInput
+                      label={"CVC/CVV"}
+                      inputWidth={"narrow-input"}
+                    />
                   </div>
 
-                  <CheckoutCardInput label={"Name on Card"} inputWidth={"wide-input"} />
+                  <CheckoutCardInput
+                    label={"Name on Card"}
+                    inputWidth={"wide-input"}
+                  />
                 </article>
               </div>
             </section>
@@ -38,11 +60,19 @@ const Checkout = () => {
             <section className="flex column checkout-summary">
               <h2>Order Summary</h2>
 
-              <p>Original Price:</p>
+              <div className="flex space-beween divider">
+                <p>Original Price:</p>
+                <p>$199</p>
+              </div>
 
-              <h3>Total:</h3>
+              <div className="flex space-beween">
+                <h3>Total:</h3>
+                <h3>$199</h3>
+              </div>
 
-              <Button btn_name={"Pay"} />
+              <div className="flex payment-button">
+                <Button btn_name={"Pay $199"} />
+              </div>
             </section>
           </div>
         </div>
