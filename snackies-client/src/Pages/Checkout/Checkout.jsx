@@ -1,44 +1,56 @@
-import React from 'react'
-import './style.css'
-import Button from '../../Components/Button/Button'
+import React from "react";
+import "./style.css";
+import Button from "../../Components/Button/Button";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
+import CheckoutCardInput from "../../Components/CheckoutCardInput/CheckoutCardInput";
 
 const Checkout = () => {
   return (
-    <main className='flex checkout-page'>
-        <div className='flex column checkout-page-inner'>
-            <h1>Checkout</h1>
+    <div>
+      <Header />
 
-            <h3>Payment Method</h3>
+      <main className="flex checkout-page">
+        <div className="flex column checkout-page-inner">
+          <h1 className="checkout-page-inner-titles">Checkout</h1>
 
-            <div className='flex column checkout-payment-card'>
-                <div className='flex payment-card-header'>
+          <h3 className="checkout-page-inner-titles">Payment Method</h3>
 
-                </div>
+          <div className="flex checkout-page-inner-inner">
+            <section className="flex column checkout-payment-card">
+              <div className="flex payment-card-header"></div>
 
-                <section className='flex column payment-card-details'>
-                    <input></input>
+              <div className="flex flex-center payment-card-body">
+                <article className="flex column payment-card-details">
+                  <CheckoutCardInput label={"Card Number"} inputWidth={"wide-input"} />
 
-                    <div className='flex'>
-                        <input></input>
-                        <input></input>
-                    </div>
+                  <div className="flex">
+                    <CheckoutCardInput label={"Expiry Date"} inputWidth={"narrow-input"} />
 
-                    <input></input>
-                </section>
+                    <CheckoutCardInput label={"CVC/CVV"} inputWidth={"narrow-input"} />
+                  </div>
 
-                <section className='flex column checkout-summary'>
-                    <h2>Order Summary</h2>
+                  <CheckoutCardInput label={"Name on Card"} inputWidth={"wide-input"} />
+                </article>
+              </div>
+            </section>
 
-                    <p>Original Price:</p>
+            <section className="flex column checkout-summary">
+              <h2>Order Summary</h2>
 
-                    <h3>Total:</h3>
+              <p>Original Price:</p>
 
-                    <Button btn_name={"Pay"} />
-                </section>
-            </div>
+              <h3>Total:</h3>
+
+              <Button btn_name={"Pay"} />
+            </section>
+          </div>
         </div>
-    </main>
-  )
-}
+      </main>
 
-export default Checkout
+      <Footer />
+    </div>
+  );
+};
+
+export default Checkout;
