@@ -16,5 +16,19 @@ class CartController {
       console.log(error);
     }
   }
+
+  static async getCart(userId, setCartItems) {
+    try {
+      const response = await axios.get(
+        `http://127.0.0.1:8000/api/v0.1/guest/get_cart/${userId}`
+      );
+
+      // debug
+      console.log(response.data);
+      setCartItems(response.data.payload.items);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 export default CartController;
