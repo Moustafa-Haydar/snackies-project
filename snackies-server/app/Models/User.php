@@ -3,13 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-// use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable // implements JWTSubject
+class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
 
@@ -25,20 +24,24 @@ class User extends Authenticatable // implements JWTSubject
         'remember_token',
     ];
 
-    // public function getJWTIdentifier()
-    // {
-    //     return $this->getKey();
-    // }
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
 
-    // /**
-    //  * Return a key value array, containing any custom claims to be added to the JWT.
-    //  *
-    //  * @return array
-    //  */
-    // public function getJWTCustomClaims()
-    // {
-    //     return [];
-    // }
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'email' => $this->email,
+        ];
+    }
 
     // protected function casts(): array
     // {
@@ -66,7 +69,7 @@ class User extends Authenticatable // implements JWTSubject
     public function notifications()
     {
         return $this->belongsToMany(Notification::class, 'user_notifications')
-                    ->withPivot('read_at')
-                    ->withTimestamps();
+            ->withPivot('read_at')
+            ->withTimestamps();
     }
 }

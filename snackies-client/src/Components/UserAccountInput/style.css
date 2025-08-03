@@ -1,0 +1,43 @@
+
+.UserAccountInput-editing-editing {
+    display: flex;
+    flex-direction: row;
+}
+
+.UserAccountInput-editing-input {
+    width: 70%;
+    border-radius: 999px;
+    padding-left: 2vw;
+}   
+
+.UserAccountInput-editing-save-btn {
+    width: 20%;
+    border: none;
+    background-color: transparent;
+    font-size: 1.1vw;
+    color: green;
+}
+
+.UserAccountInput-editing-no-editing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    padding: 8px 12px;
+    width: auto;
+}
+
+.UserAccountInput-editing-no-editing span {
+    font-size: 16px;
+    padding-left: 1vw;
+}
+
+.UserAccountInput-change-btn {
+    background: none;
+    border: none;
+    color: #c0392b;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1vw;
+}

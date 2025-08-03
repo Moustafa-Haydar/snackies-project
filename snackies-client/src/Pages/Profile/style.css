@@ -12,34 +12,75 @@
     height: 85vh;
     justify-content: center;
     align-items: center;
-
-    border: 2px solid red;
 }
 
 .account-inner-container {
     height: 65vh;
     width: 70%;
     
-    border: 2px solid black;
+    border: 2px solid rgb(88, 85, 85);
 }
 
 
 .account-container-left {
     background-color: var(--primary-color);
     color: white;
-    padding: 5vh;
-    justify-content: center;
+    padding-top: 5vh;
+    min-width: 30%;
+    max-width: 30%;
+    align-items: center;
+    gap: 10vh;
+    padding-top: 10vh;
+}
 
+.account-container-left-title {
+    font-weight: 400;
+    font-size: 1.2vw;
+}
+
+.account-container-left-links {
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--secondary-color);
+}
+
+.account-container-link {
+    color: white;
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    padding: 2vh 0;
+    border: 1px solid var(--secondary-color);
+}
+
+.account-container-link:hover {
+    cursor: pointer;
+}
+
+.account-container-link::after {
+    background-color: var(--secondary-color);
 }
 
 .account-container-right {
     background-color: white;
-    width: 100%;
     justify-content: center;
     gap: 5vh;
     padding: 10vw;
+    width: 50%
+}
+
+.account-container-right-title-container {
+    text-align: center;
 }
 
 .account-container-right-title {
-    align-items: center;
+    font-size: 1.3vw;
+    font-weight: 500;
+    color: var(--primary-color);
 }
+
+.account-inputs {
+    gap: 2vh;
+}
+
+
