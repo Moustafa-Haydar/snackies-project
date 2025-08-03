@@ -46,3 +46,9 @@
 .btn.ghost:hover {
     text-decoration: underline;
 }
+
+/* Product Page Buttons */
+.btn.product-page {
+    background: none;
+    border: none;
+}

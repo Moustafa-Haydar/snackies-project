@@ -38,3 +38,33 @@
 .product-page-info-fav-gift {
     
 }
+
+.product-page-button {
+    background: none;
+    border: none;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    gap: 10%;
+    margin-bottom: 4%;
+}
+
+.product-page-button:hover {
+    cursor: pointer;
+    opacity: 80%;
+    text-decoration: underline;
+}
+
+.product-page-buttons-div {
+    width: 100%;
+}
+
+.product-page-button p {
+    text-wrap: nowrap;
+    color: var(--primary-color);
+}
+
+.product-button-icon {
+    width: 24px;
+    height: 24px;
+}
