@@ -88,6 +88,7 @@ const Shop = () => {
                 key={product.id}
                 productId={product.id}
                 productImage={product.image}
+                productDescription={product.description}
                 productRating={product.average_rating}
                 productName={product.name}
                 productPrice={product.price}

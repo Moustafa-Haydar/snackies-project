@@ -55,7 +55,7 @@ const UserCart = () => {
       tempTotal += parseFloat(item.price);
     });
 
-    setTotal(tempTotal);
+    setTotal(tempTotal.toFixed(2));
   };
 
   const proceedToCheckout = () => {

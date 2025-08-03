@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import './style.css';
 import StarRating from '../StarReview/StarReview';
 
-const ProductCard = ({productId, productName, productPrice, productRating, productImage}) => {
+const ProductCard = ({productId, productName, productDescription, productPrice, productRating, productImage}) => {
     const navigate = useNavigate();
 
     const handleCardClick =()=>{
         const productDetails = {
-            productId, productName, productPrice, productRating, productImage
+            productId, productName, productPrice, productDescription, productRating, productImage
         }
         
         localStorage.setItem("currentProduct", JSON.stringify(productDetails));

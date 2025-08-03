@@ -100,7 +100,7 @@ const ProductPage = ({
           <div>
             <h4>Product Details</h4>
 
-            <p>{currentProduct.productDetails}</p>
+            <p>{currentProduct.productDescription}</p>
           </div>
         </div>
       </div>
