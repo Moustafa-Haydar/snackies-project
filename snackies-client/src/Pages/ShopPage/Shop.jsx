@@ -67,39 +67,6 @@ const Shop = () => {
                 ))}
             </div>
 
-
-            {/* <div className="right-side-filter">
-                <RightSideFilter 
-                name={"Sort Alphabetically"}
-                choices={["A-Z","Z-A"]}
-                onSelect={SortProductsByName}
-                />
-                <RightSideFilter 
-                name={"Sort By Price"}
-                choices={["Low to High","High to Low"]}
-                onSelect={SortProductsByPrice}
-                />
-                <RightSideFilter 
-                name={"Filter By Price"}
-                choices={["A-Z","Z-A"]}
-                onSelect={FilterProductsByPrice}
-                />
-            </div> */}
-            <div className="products-container">
-                {products.map(product => (
-                <ProductCard
-                key={product.id}
-                productId={product.id}
-                productImage={product.image}
-                productDescription={product.description}
-                productRating={product.average_rating}
-                productName={product.name}
-                productPrice={product.price}
-                />
-                ))}
-  
-  
-  
             
             <div className="filter-content">
                 <button className='filterbtn' onClick={toggleContent}>
@@ -143,15 +110,14 @@ const Shop = () => {
                             key={product.id}
                             productId={product.id}
                             productImage={product.image}
+                            productDescription={product.description}
                             productRating={product.average_rating}
                             productName={product.name}
                             productPrice={product.price}
                         />
                     ))}
                 </div>
-                
-                
-                
+
             </div>
             <Footer />
         </div>

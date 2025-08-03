@@ -5,7 +5,7 @@ import starSolid from "../../Assets/Icons/star-solid-full.svg";
 
 const StarRating = ({ rating, totalStars = 5 }) => {
   return (
-    <div className="flex">
+    <div className="star-rating">
       {Array.from({ length: totalStars }).map((item, index) => (
         <img
           className="star-rating-container"
