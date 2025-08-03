@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\common\AuthService;
 use App\Http\Requests\StoreUserRequest;
 
+
 use App\Traits\ResponseTrait;
 
 class AuthController extends Controller
