@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import './style.css';
+import filter from '../../Assets/Icons/filter-solid-full.svg'
 
 const ShopFilter = ({name, choices = [], onSelect}) => {
 
