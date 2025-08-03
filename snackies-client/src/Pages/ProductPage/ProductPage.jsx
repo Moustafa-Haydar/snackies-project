@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Button from "../../Components/Button/Button";
+
+import { TokenContext } from "../../Contexts/TokenContext";
+
 import CartController from "../../Controllers/CartController";
+import StarRating from "../../Components/StarReview/StarReview";
+import TokenController from "../../Controllers/TokenController";
 
 const ProductPage = ({
   productId,
@@ -13,9 +18,16 @@ const ProductPage = ({
   productPrice,
   productDetails,
 }) => {
+  const { tokenState } = useContext(TokenContext);
+  const [ userState, setUserState ] = useState(null);
+
+  useEffect( () => {
+        TokenController.decodeToken(tokenState, setUserState);
+    }, [tokenState]);
+
   const addItemCart = () => {
     console.log("adding this item to cart");
-    CartController.addItemToCard();
+    CartController.addItemToCart(productId, userState.id);
   };
 
   return (
@@ -35,7 +47,7 @@ const ProductPage = ({
           <div className="flex column product-page-info-title">
             <h1>{productName}</h1>
 
-            <p>{productName}</p>
+            <StarRating rating={productRating} />
           </div>
 
           <h3 className="product-page-info-price">{productPrice}</h3>
