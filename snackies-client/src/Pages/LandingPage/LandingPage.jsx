@@ -77,20 +77,6 @@ const LandingPage = () => {
         </h1>
 
         <div className="flex landing-category-cards-div">
-          {/* <div className="landing-category-card flex column flex-center">
-            <h1>TEMP</h1>
-            <Button btn_name={"Cheesy"} />
-          </div>
-
-          <div className="landing-category-card flex column flex-center">
-            <h1>TEMP</h1>
-            <Button btn_name={"Cheesy"} />
-          </div>
-
-          <div className="landing-category-card flex column flex-center">
-            <h1>TEMP</h1>
-            <Button btn_name={"Cheesy"} />
-          </div> */}
           {categories.map((cat) => {
                                 return <CategoryCard key={cat.id} imageSrc={cat.image_url} categoryName={cat.name}/>
                             })}
