@@ -11,6 +11,7 @@ import CheckoutController from "../../Controllers/CheckoutController";
 import TokenController from "../../Controllers/TokenController";
 
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const [cardNum, setCardNum] = useState();
@@ -18,8 +19,13 @@ const Checkout = () => {
   const [extraCode, setExtraCode] = useState();
   const [nameCard, setNameCard] = useState();
 
+  const navigate = useNavigate();
+
   const { tokenState } = useContext(TokenContext);
   const [ userState, setUserState ] = useState(null);
+
+  const total = localStorage.getItem("cartTotal");
+  const buttonName = "Pay $" + total;
 
   useEffect( () => {
         TokenController.decodeToken(tokenState, setUserState);
@@ -30,6 +36,8 @@ const Checkout = () => {
 
     CheckoutController.placeOrder(userState.id);
     console.log(paymentDetails);
+
+    navigate("/");
   };
 
   return (
@@ -94,16 +102,16 @@ const Checkout = () => {
 
               <div className="flex space-beween divider">
                 <p>Original Price:</p>
-                <p>$199</p>
+                <p>${total}</p>
               </div>
 
               <div className="flex space-beween">
                 <h3>Total:</h3>
-                <h3>$199</h3>
+                <h3>${total}</h3>
               </div>
 
               <div className="flex payment-button">
-                <Button btn_name={"Pay $199"} onClick={savePayment}/>
+                <Button btn_name={buttonName} onClick={savePayment}/>
               </div>
             </section>
           </div>
