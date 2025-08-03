@@ -1,11 +1,16 @@
-import React, { useState } from "react";
-import "./style.css";
+import React, { useContext, useEffect, useState } from "react";
+import { TokenContext } from "../../Contexts/TokenContext";
+
 import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import CheckoutCardInput from "../../Components/CheckoutCardInput/CheckoutCardInput";
 import headerIcon from "../../Assets/Icons/card-header-icon.svg";
 import cardBrands from "../../Assets/Icons/credit-cards.svg";
+import CheckoutController from "../../Controllers/CheckoutController";
+import TokenController from "../../Controllers/TokenController";
+
+import "./style.css";
 
 const Checkout = () => {
   const [cardNum, setCardNum] = useState();
@@ -13,9 +18,17 @@ const Checkout = () => {
   const [extraCode, setExtraCode] = useState();
   const [nameCard, setNameCard] = useState();
 
+  const { tokenState } = useContext(TokenContext);
+  const [ userState, setUserState ] = useState(null);
+
+  useEffect( () => {
+        TokenController.decodeToken(tokenState, setUserState);
+    }, [tokenState]);
+
   const savePayment = () => {
     const paymentDetails = { cardNum, expiryDate, extraCode, nameCard };
 
+    CheckoutController.placeOrder(userState.id);
     console.log(paymentDetails);
   };
 

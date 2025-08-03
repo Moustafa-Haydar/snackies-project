@@ -38,6 +38,7 @@ const ProductPage = ({
   const addItemCart = () => {
     console.log("Adding this item to cart");
     CartController.addItemToCart(currentProduct.productId, userState.id);
+    
   };
 
   const swapFav = () => {
