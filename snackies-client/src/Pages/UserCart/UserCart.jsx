@@ -8,10 +8,13 @@ import CartItem from "../../Components/CartItem/CartItem";
 import { TokenContext } from "../../Contexts/TokenContext";
 import TokenController from "../../Controllers/TokenController";
 import CartController from "../../Controllers/CartController";
+import { useNavigate } from "react-router-dom";
 
 const UserCart = () => {
   const [total, setTotal] = useState(0);
   const [cartItems, setCartItems] = useState([]);
+
+  const navigate = useNavigate();
 
   const { tokenState } = useContext(TokenContext);
   const [userState, setUserState] = useState(null);
@@ -55,6 +58,12 @@ const UserCart = () => {
     setTotal(tempTotal);
   };
 
+  const proceedToCheckout = () => {
+    localStorage.setItem("cartTotal", total);
+
+    navigate("/checkout");
+  }
+
   return (
     <div>
       <Header />
@@ -80,7 +89,7 @@ const UserCart = () => {
 
               <h1>${total}</h1>
 
-              <Button btn_name={"Proceed to Checkout →"} />
+              <Button btn_name={"Proceed to Checkout →"} onClick={proceedToCheckout}/>
             </div>
           </div>
         </div>
