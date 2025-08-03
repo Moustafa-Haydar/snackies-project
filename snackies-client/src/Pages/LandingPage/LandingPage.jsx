@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import HeroItems from "../../Assets/images/LandingPage/hero_section_foreground.webp";
 import Button from "../../Components/Button/Button";
 import Marquee from "react-fast-marquee";
@@ -12,6 +12,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
 // import ImageUpload from "../../Components/ImageUpload/ImageUpload";
 import Footer from "../../Components/Footer/Footer";
+import CategoryCard from "../../Components/CategoryCard/CategoryCard";
+import CategoriesController from "../../Controllers/CategoriesController";
 
 // required code to use token provider
 
@@ -23,8 +25,14 @@ import Footer from "../../Components/Footer/Footer";
 //     console.log(tokenState);
 //   });
 
+
 const LandingPage = () => {
   const sliderRef = useRef();
+  const [categories, setCategories] = useState([]);
+
+  useEffect (() => {
+    CategoriesController.getAllCategories(setCategories);
+  }, [])
 
   const carouselSettings = {
     dots: true,
@@ -69,7 +77,7 @@ const LandingPage = () => {
         </h1>
 
         <div className="flex landing-category-cards-div">
-          <div className="landing-category-card flex column flex-center">
+          {/* <div className="landing-category-card flex column flex-center">
             <h1>TEMP</h1>
             <Button btn_name={"Cheesy"} />
           </div>
@@ -82,7 +90,10 @@ const LandingPage = () => {
           <div className="landing-category-card flex column flex-center">
             <h1>TEMP</h1>
             <Button btn_name={"Cheesy"} />
-          </div>
+          </div> */}
+          {categories.map((cat) => {
+                                return <CategoryCard key={cat.id} imageSrc={cat.image_url} categoryName={cat.name}/>
+                            })}
         </div>
       </div>
 
