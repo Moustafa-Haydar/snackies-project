@@ -6,9 +6,9 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import CategoryController from "../../Controllers/CategoriesController";
+import CategoryController from "../../Controllers/CategoriesController";
 import ProductController from "../../Controllers/ProductsController";
-// import RightSideFilter from "../../Components/Filter/RightSIdeFilter";
+import ShopFilter from "../../Components/ShopFilter/ShopFilter";
 import './style.css';
 
 const Shop = () => {
@@ -20,20 +20,20 @@ const Shop = () => {
     const [sortProductsByPrice, setSortProductsByPrice]= useState([]);
     const navigate= useNavigate();
 
-    // useEffect (() => {
-    //   CategoryController.getAllCategories(setCategories);
-    // },[]);
+    useEffect (() => {
+      CategoryController.getAllCategories(setCategories);
+    },[]);
 
     useEffect (() => {
       ProductController.getAllProducts(setProducts);
     },[]);
 
-    // const FilterProductsByCategory = (category) => {
-    //     const filteredProducts = products.filter(product =>
-    //         category ? product.category === category : true
-    // );
-    // setFilteredProductsByCategory(filteredProducts);
-    // };
+    const FilterProductsByCategory = (category) => {
+        const filteredProducts = products.filter(product =>
+            category ? product.category === category : true
+    );
+    setFilteredProductsByCategory(filteredProducts);
+    };
 
     const FilterProductsByPrice = (price) => {
         const filterProducts = products?.filter(product =>
@@ -56,15 +56,15 @@ const Shop = () => {
     return (
         <div className="">
             <Header />
-            {/* <div className="categories-container">
+            <div className="categories-container">
                 {categories.map(category =>(
                 <CategoryCard
                 key={category.id}
-                imageSrc={category.image}
+                imageSrc={category.image_url}
                 categoryName={category.name}
                 onClick={() => FilterProductsByCategory(category.name)}/>
                 ))}
-            </div> */}
+            </div>
             {/* <div className="right-side-filter">
                 <RightSideFilter 
                 name={"Sort Alphabetically"}
@@ -88,7 +88,7 @@ const Shop = () => {
                 key={product.id}
                 productId={product.id}
                 productImage={product.image}
-                productRating={product.rating}
+                productRating={product.average_rating}
                 productName={product.name}
                 productPrice={product.price}
                 />
