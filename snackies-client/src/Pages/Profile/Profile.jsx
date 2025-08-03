@@ -12,7 +12,7 @@ const Profile = () => {
 
     // account, order_history, favorites
     const navigate = useNavigate();
-    const { tokenState, clearToken } = useContext(TokenContext);
+    const { tokenState, saveToken, clearToken } = useContext(TokenContext);
 
     const [currentLink, setCurrentLink] = useState('account');
     const [ userState, setUserState ] = useState(null);
@@ -54,6 +54,8 @@ const Profile = () => {
                 last_name: user.last_name,
                 email: user.email,
             }));
+
+            saveToken(user.token);
 
             console.log("User updated successfully!");
 
@@ -131,11 +133,15 @@ return (
                             <UserAccountInput value={firstNameState} setValue={setFirstNameState} label="First Name"/>
                             <UserAccountInput value={lastNameState} setValue={setLastNameState} label="Last Name"/>
                             <UserAccountInput value={emailState} setValue={setEmailState} label="Email"/>
-                            
+
+                        </div>
+
+                        <div className='account-buttons display-row'>
+
                             <Button btn_name={"Save Changes"}
                                 onClick={() => handleSaveChanges()}/>
 
-                            <Button btn_name={"Logout"}
+                            <Button btn_name={"Logout"} type='outline'
                                 onClick={() => logout()}/>
 
                         </div>
