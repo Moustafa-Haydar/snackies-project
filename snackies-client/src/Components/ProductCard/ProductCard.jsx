@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import './style.css';
 import StarRating from '../StarReview/StarReview';
 
-const ProductCard = ({productID, productName, productPrice, productRating, productImage}) => {
-    const navigate = useNavigate;
+const ProductCard = ({productId, productName, productPrice, productRating, productImage}) => {
+    const navigate = useNavigate();
 
     const handleCardClick =()=>{
-        navigate(`/product/${productID}`);
+        navigate(`/product/${productId}`);
     };
 
     return (
