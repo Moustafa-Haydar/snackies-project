@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
-import Input from '../../Components/Input/Input';
 import './style.css';
 import TokenController from './../../Controllers/TokenController';
 import { TokenContext } from '../../Contexts/TokenContext';
@@ -18,9 +17,9 @@ const Profile = () => {
     const [currentLink, setCurrentLink] = useState('account');
     const [ userState, setUserState ] = useState(null);
     
-    const [firstNameState, setFirstNameState] = useState();
-    const [lastNameState, setLastNameState] = useState();
-    const [emailState, setEmailState] = useState();
+    const [firstNameState, setFirstNameState] = useState('');
+    const [lastNameState, setLastNameState] = useState('');
+    const [emailState, setEmailState] = useState('');
 
     // Decode token and get user info
     useEffect( () => {
@@ -28,20 +27,39 @@ const Profile = () => {
     }, [tokenState]);
 
     useEffect(() => {
+        console.log("userState changed:", userState);
+
         if (userState) {
             setFirstNameState(userState.first_name || '');
             setLastNameState(userState.last_name || '');
             setEmailState(userState.email || '');
         }
+
     }, [userState]);
 
     const handleSaveChanges = async () => {
+
+        if (!userState) return;
         
-        await UserController.updateUser(tokenState, userState.id, {
-            first_name: firstNameState,
-            last_name: lastNameState,
-            email: emailState,
-        })
+        try {
+            const user = await UserController.updateUser(tokenState, userState.id, {
+                first_name: firstNameState,
+                last_name: lastNameState,
+                email: emailState,
+            });
+
+            setUserState(prev => ({
+                ...prev,
+                first_name: user.first_name,
+                last_name: user.last_name,
+                email: user.email,
+            }));
+
+            console.log("User updated successfully!");
+
+        } catch (error) {
+            console.log("Failed to update user");
+        }
     };
 
     const changeCurrentLink = (Link) => {
@@ -114,6 +132,9 @@ return (
                             <UserAccountInput value={lastNameState} setValue={setLastNameState} label="Last Name"/>
                             <UserAccountInput value={emailState} setValue={setEmailState} label="Email"/>
                             
+                            <Button btn_name={"Save Changes"}
+                                onClick={() => handleSaveChanges()}/>
+
                             <Button btn_name={"Logout"}
                                 onClick={() => logout()}/>
 

@@ -35,13 +35,14 @@ Route::group(["prefix" => "v0.1"], function () {
         Route::get("/items/{id?}", [ItemController::class, "getAllItems"]);
         Route::get("/product_of_the_day", [ItemController::class, "getProductOfTheDay"]);
 
-        Route::get("/categories/{id?}",[CategoryController::class,"getCategories"]);
+        Route::get("/categories/{id?}", [CategoryController::class, "getCategories"]);
 
         Route::post("/add_to_cart", [CartController::class, "addToCart"]);
         Route::post("/upload_image", [AttachmentController::class, "uploadImage"]);
 
         Route::post("/login", [AuthController::class, "login"]);
         Route::post("/register", [AuthController::class, "register"]);
+        Route::post("/update/{id}", [UserController::class, "updateUser"]);
 
         Route::get("/get_cart/{id}", [CartController::class, "getCartByUserId"]);
         // ID being passed is user ID, get their cart

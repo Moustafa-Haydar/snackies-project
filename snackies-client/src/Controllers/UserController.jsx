@@ -8,16 +8,19 @@ class UserController {
         
         try {
 
-        const response = await axios.post(`${BASE_URL}/user/${id}`, {
-            userInfo, 
-            headers: {
-            Authorization: `Bearer ${token}`
-            },
-        });
+            const response = await axios.post(`${BASE_URL}/update/${id}`, 
+                userInfo, 
+                {
+                    headers: {
+                    Authorization: `Bearer ${token}`
+                    },
+                });
+                
+            return response.data.payload;
 
         } catch (error) {
-        console.error('Failed to update user', error);
-        throw error;
+            console.error('Failed to update user', error);
+            throw error;
         }
         
     }

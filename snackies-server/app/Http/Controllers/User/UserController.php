@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Services\User\UserService;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Traits\ResponseTrait;
@@ -30,4 +31,16 @@ class UserController extends Controller
             return $this->responseJSON(null, "Error: " . $e->getMessage(), 500);
         }
     }
-} 
+
+    // moustafa
+    function updateUser(Request $request, $id)
+    {
+        $user = UserService::updateUser($request, $id);
+
+        if ($user == null) {
+            return $this->responseJSON(null, "User info not udpated!", 500);
+        }
+
+        return $this->responseJSON($user);
+    }
+}
