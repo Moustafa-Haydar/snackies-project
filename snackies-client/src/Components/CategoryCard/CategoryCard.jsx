@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 import './style.css';
 
-const CategoryCard =({imageSrc, categoryName, onClick, type="secondary"})=>{
+const CategoryCard =({imageSrc, categoryName, onClick, type="outline"})=>{
     return (
         <div className="categorycard-component">
             <div className="image-section">
