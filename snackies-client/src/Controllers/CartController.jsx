@@ -3,7 +3,7 @@ class CartController {
   static async addItemToCart(productId, userId) {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/v0.1/test/add_to_cart",
+        "http://127.0.0.1:8000/api/v0.1/guest/add_to_cart",
         {
           user_id : userId,
           item_id : productId
