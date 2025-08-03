@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import './style.css';
 import image from '../../Assets/CategoryCards/Cheesy.png'
 
-const CategoryCard =({imageSrc, categoryName, onClick, type="secondary"})=>{
+const CategoryCard =({imageSrc, categoryName, onClick, type="outline"})=>{
     return (
         <div className="categorycard-component">
             <div className="image-section">
