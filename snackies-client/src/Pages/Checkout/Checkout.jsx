@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
@@ -8,6 +8,17 @@ import headerIcon from "../../Assets/Icons/card-header-icon.svg";
 import cardBrands from "../../Assets/Icons/credit-cards.svg";
 
 const Checkout = () => {
+  const [cardNum, setCardNum] = useState();
+  const [expiryDate, setExpiryDate] = useState();
+  const [extraCode, setExtraCode] = useState();
+  const [nameCard, setNameCard] = useState();
+
+  const savePayment = () => {
+    const paymentDetails = { cardNum, expiryDate, extraCode, nameCard };
+
+    console.log(paymentDetails);
+  };
+
   return (
     <div>
       <Header />
@@ -22,7 +33,11 @@ const Checkout = () => {
             <section className="flex column checkout-payment-card">
               <div className="flex payment-card-header">
                 <article className="flex">
-                  <img className="header-icon" src={headerIcon} alt="Card Header"></img>
+                  <img
+                    className="header-icon"
+                    src={headerIcon}
+                    alt="Card Header"
+                  ></img>
 
                   <h3>Cards</h3>
                 </article>
@@ -35,23 +50,27 @@ const Checkout = () => {
                   <CheckoutCardInput
                     label={"Card Number"}
                     inputWidth={"wide-input"}
+                    setField={setCardNum}
                   />
 
                   <div className="flex">
                     <CheckoutCardInput
                       label={"Expiry Date"}
                       inputWidth={"narrow-input"}
+                      setField={setExpiryDate}
                     />
 
                     <CheckoutCardInput
                       label={"CVC/CVV"}
                       inputWidth={"narrow-input"}
+                      setField={setExtraCode}
                     />
                   </div>
 
                   <CheckoutCardInput
                     label={"Name on Card"}
                     inputWidth={"wide-input"}
+                    setField={setNameCard}
                   />
                 </article>
               </div>
@@ -71,7 +90,7 @@ const Checkout = () => {
               </div>
 
               <div className="flex payment-button">
-                <Button btn_name={"Pay $199"} />
+                <Button btn_name={"Pay $199"} onClick={savePayment}/>
               </div>
             </section>
           </div>
