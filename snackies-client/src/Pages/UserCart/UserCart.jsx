@@ -28,6 +28,15 @@ const UserCart = () => {
   }, [userState]);
 
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      // Your useEffect code here to be run on update
+      calculateTotal();
+    }
+  }, [cartItems]);
+
+  useEffect(() => {
     TokenController.decodeToken(tokenState, setUserState);
   }, [tokenState]);
 
@@ -39,15 +48,12 @@ const UserCart = () => {
     let tempTotal = 0;
 
     cartItems.forEach((item) => {
-      tempTotal += item.price * item.quantity;
+      console.log(item.price);
+      tempTotal += parseFloat(item.price);
     });
 
     setTotal(tempTotal);
   };
-
-  useEffect(() => {
-    calculateTotal();
-  });
 
   return (
     <div>
