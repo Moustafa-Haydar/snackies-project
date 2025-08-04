@@ -9,7 +9,7 @@ use App\Models\User;
 
 use Illuminate\Support\Facades\Log;
 
-class AutoOrderInvoiceMail extends Command
+class AutoOrderInvoiceMail extends Command 
 {
     /**
      * The name and signature of the console command.
@@ -34,7 +34,7 @@ class AutoOrderInvoiceMail extends Command
         // debug
         Log::info('Starting invoice email job.');
 
-        $user = User::where('email', 'moustafahaydar.eng@gmail.com')->first();
+        $user = User::where('email', 'dhayek92@gmail.com')->first();
 
         // debug
         Log::info($user);
