@@ -8,6 +8,7 @@ use App\Http\Controllers\Common\CategoryController;
 use App\Http\Controllers\Admin\AttachmentController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\OrderController;
+use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\UserController;
 
 
@@ -67,7 +68,23 @@ Route::group(["prefix" => "v0.1"], function () {
         Route::get("/orders/{orderId}", [OrderController::class, "getOrderDetails"]);
 
 
-
+        // Create a new review for an item
+        Route::post("/reviews", [ReviewController::class, "createReview"]);
+        
+        // Get all reviews for a specific item
+        Route::get("/reviews/item/{itemId}", [ReviewController::class, "getItemReviews"]);
+        
+        // Get all reviews by a specific user
+        Route::get("/reviews/user/{userId}", [ReviewController::class, "getUserReviews"]);
+        
+        // Get featured reviews (high-rated reviews)
+        Route::get("/reviews/featured", [ReviewController::class, "getFeaturedReviews"]);
+        
+        // Update an existing review (only by review owner)
+        Route::put("/reviews/{reviewId}", [ReviewController::class, "updateReview"]);
+        
+        // Delete a review (only by review owner)
+        Route::delete("/reviews/{reviewId}", [ReviewController::class, "deleteReview"]);
 
     });
 
