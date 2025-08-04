@@ -3,6 +3,8 @@
 namespace App\Listeners;
 
 use App\Events\OrderPlaced;
+use App\Models\Item;
+use App\Models\OrderItem;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -17,10 +19,18 @@ class UpdateStock
     }
 
     /**
-     * Handle the event.
+     * Handle the event
      */
     public function handle(OrderPlaced $event): void
     {
-        echo "Event Handled";
+        $itemsPurchased = OrderItem::where("order_id", $event->order->id)->get();
+        // echo $itemsPurchased;
+        foreach ($itemsPurchased as $i) {
+            $curItem = Item::find($i->item_id);
+
+            $curItem->stock = $curItem->stock - 1;
+
+            $curItem->save();
+        }
     }
 }
