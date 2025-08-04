@@ -36,7 +36,7 @@ class AutoOrderInvoiceMail extends Command
         // debug
         Log::info('Starting invoice email job.');
 
-        $user = User::where('email', 'dhayek92@gmail.com')->first();
+        $user = User::where('email', 'moustafahaydar.eng@gmail.com')->first();
 
         // debug
         Log::info($user);

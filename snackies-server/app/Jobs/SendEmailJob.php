@@ -33,16 +33,11 @@ class SendEmailJob implements ShouldQueue
             $user = User::findOrFail($this->userId);
             $order = Order::findOrFail($this->orderId);
 
-            // 
-            Log::info($user);
-            Log::info($order);
-
             $mailable = new OrderInvoiceMail($user, $order);
 
-            //
-            Log::info($mailable);
-
             Mail::to($this->mailTo)->send($mailable);
+
+            Log::info("Mail sent successfully to " . $user->first_name . " " . $user->last_name . "!");
 
         } catch (\Exception $e) {
             Log::error('Mail Sending Failed | ' . $e->getMessage());

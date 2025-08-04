@@ -33,10 +33,8 @@ class OrderController extends Controller
                 if (!$user)
                     return;
 
+                // Send Email - Queued Job
                 SendEmailJob::dispatch($user['email'], $user['id'], $order['id']);
-
-                // waiting here
-                Log::info("order email sent");
 
                 return $this->responseJSON($order, "Order placed successfully");
             }
