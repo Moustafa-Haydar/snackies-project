@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Events\OrderPlaced;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\User\OrderService;
@@ -15,18 +16,19 @@ class OrderController extends Controller
     {
         try {
             $order = OrderService::placeOrder($request, $id);
-            
+
             if ($order === 'empty_cart') {
                 return $this->responseJSON(null, "Cart is empty", 400);
             }
-            
+
             if ($order) {
+                OrderPlaced::dispatch($order);
                 return $this->responseJSON($order, "Order placed successfully");
             }
-            
+
             return $this->responseJSON(null, "No cart found", 404);
         } catch (\Exception $e) {
             return $this->responseJSON(null, "Error: " . $e->getMessage(), 500);
         }
     }
-} 
+}
