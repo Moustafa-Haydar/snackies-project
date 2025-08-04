@@ -24,7 +24,6 @@ class UpdateStock
     public function handle(OrderPlaced $event): void
     {
         $itemsPurchased = OrderItem::where("order_id", $event->order->id)->get();
-        // echo $itemsPurchased;
         foreach ($itemsPurchased as $i) {
             $curItem = Item::find($i->item_id);
 
