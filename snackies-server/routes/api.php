@@ -52,6 +52,23 @@ Route::group(["prefix" => "v0.1"], function () {
 
         Route::get("/users/{id?}", [UserController::class, "getUsers"]);
         // Optional parameter: if ID is provided, get specific user; otherwise get all users
+
+        
+        Route::put("/orders/{orderId}/status", [OrderController::class, "updateOrderStatus"]);
+        // Update order status
+        Route::delete("/orders/{orderId}", [OrderController::class, "cancelOrder"]);
+        //Cancel an order (cannot cancel delivered orders)
+        
+
+        Route::get("/orders/user/{userId}", [OrderController::class, "getUserOrders"]);
+        //Get all orders for a specific user
+        Route::get("/orders/status", [OrderController::class, "getAllOrdersByStatus"]);
+        //Get all order by status from all users
+        Route::get("/orders/{orderId}", [OrderController::class, "getOrderDetails"]);
+
+
+
+
     });
 
 

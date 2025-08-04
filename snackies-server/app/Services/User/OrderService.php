@@ -5,6 +5,7 @@ namespace App\Services\User;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -64,5 +65,57 @@ class OrderService
             DB::rollback();
             throw $e;
         }
+    }
+
+    public static function updateOrderStatus($orderId, $status)
+    {
+        $order = Order::find($orderId);
+        if (!$order) {
+            return null;
+        }
+
+        $order->status = $status;
+        $order->save();
+
+        return $order;
+    }
+
+    public static function cancelOrder($orderId)
+    {
+        $order = Order::find($orderId);
+        if (!$order) {
+            return null;
+        }
+
+        if ($order->status === 'delivered') {
+            return 'cannot_cancel_delivered';
+        }
+
+        $order->status = 'cancelled';
+        $order->save();
+
+        return $order;
+    }
+
+    public static function getUserOrders($userId)
+    {
+        return Order::with(['items', 'user'])
+                   ->where('user_id', $userId)
+                   ->orderBy('created_at', 'desc')
+                   ->get();
+    }
+
+    public static function getOrderDetails($orderId)
+    {
+        return Order::with(['items', 'user'])
+                   ->find($orderId);
+    }
+
+    public static function getAllOrdersByStatus($status)
+    {
+        return Order::with(['items', 'user'])
+                   ->where('status', $status)
+                   ->orderBy('created_at', 'desc')
+                   ->get();
     }
 } 

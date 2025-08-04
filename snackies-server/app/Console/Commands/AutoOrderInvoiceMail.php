@@ -6,6 +6,8 @@ use Illuminate\Console\Command;
 use Mail;
 use App\Mail\OrderInvoiceMail;
 use App\Models\User;
+use Illuminate\Support\Facades\Redis;
+
 
 use Illuminate\Support\Facades\Log;
 

@@ -85,7 +85,6 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="{{ asset('../../images/snackies-logo-orange-nobg.webp') }}" alt="Logo" class="logo">
             <div class="user-info">
                 <strong>{{ $user->first_name }} {{ $user->last_name }}</strong>
                 <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
