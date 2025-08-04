@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Events\OrderPlaced;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\User\OrderService;
@@ -27,12 +28,12 @@ class OrderController extends Controller
             }
 
             if ($order) {
+              
+                OrderPlaced::dispatch($order);
 
-                // moustafa
                 $user = User::find($id);
                 if (!$user)
                     return;
-
                 // Send Email - Queued Job
                 SendEmailJob::dispatch($user['email'], $user['id'], $order['id']);
 
@@ -44,6 +45,7 @@ class OrderController extends Controller
             return $this->responseJSON(null, "Error: " . $e->getMessage(), 500);
         }
     }
+  
     public function updateOrderStatus(Request $request, $orderId)
     {
         try {
@@ -120,6 +122,5 @@ class OrderController extends Controller
             return $this->responseJSON(null, "Error: " . $e->getMessage(), 500);
         }
     }
-
 
 }
