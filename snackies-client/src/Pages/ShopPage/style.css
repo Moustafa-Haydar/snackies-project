@@ -109,8 +109,27 @@
 
 .price-slider {
     width: 100%;
-    height: 8px;
-    background: var( --bg-color);
+    height: 3px;
+    background: var(--bg-color);
     outline: none;
-    border-radius: 5px;
+    border-radius: var(--radius);
+    -webkit-appearance: none;
+}
+
+.price-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.price-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    cursor: pointer;
 }
