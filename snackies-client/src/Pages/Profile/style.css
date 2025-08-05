@@ -87,3 +87,17 @@
     justify-content: space-evenly;
     
 }
+
+.account-container-right-notif {
+    background-color: white;
+    justify-content: start;
+    gap: 5vh;
+    padding: 3vw;
+    width: 60%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.notif-container {
+    width: 100%;
+}

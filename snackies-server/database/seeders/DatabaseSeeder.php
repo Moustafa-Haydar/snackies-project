@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
             CartSeeder::class,
             OrderSeeder::class,
             ReviewSeeder::class,
-            NotificationSeeder::class,
+            // NotificationSeeder::class,
             CartItemSeeder::class,
             OrderItemSeeder::class,
-            UserNotificationSeeder::class,
+            // UserNotificationSeeder::class,
         ]);
     }
 }

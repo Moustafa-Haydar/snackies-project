@@ -11,6 +11,7 @@ use App\Traits\ResponseTrait;
 use App\Models\User;
 use App\Jobs\SendEmailJob;
 use App\Mail\OrderInvoiceMail;
+use App\Notifications\OrderPlacedNotification;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 
@@ -28,14 +29,14 @@ class OrderController extends Controller
             }
 
             if ($order) {
-              
-                OrderPlaced::dispatch($order);
+
 
                 $user = User::find($id);
                 if (!$user)
                     return;
                 // Send Email - Queued Job
                 SendEmailJob::dispatch($user['email'], $user['id'], $order['id']);
+                OrderPlaced::dispatch($order);
 
                 return $this->responseJSON($order, "Order placed successfully");
             }
@@ -45,7 +46,7 @@ class OrderController extends Controller
             return $this->responseJSON(null, "Error: " . $e->getMessage(), 500);
         }
     }
-  
+
     public function updateOrderStatus(Request $request, $orderId)
     {
         try {

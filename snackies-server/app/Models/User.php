@@ -66,10 +66,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne(Cart::class);
     }
 
-    public function notifications()
-    {
-        return $this->belongsToMany(Notification::class, 'user_notifications')
-            ->withPivot('read_at')
-            ->withTimestamps();
-    }
+    // public function notifications()
+    // {
+    //     return $this->belongsToMany(Notification::class, 'user_notifications')
+    //         ->withPivot('read_at')
+    //         ->withTimestamps();
+    // }
 }
