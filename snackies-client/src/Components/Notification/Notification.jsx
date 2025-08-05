@@ -1,12 +1,14 @@
 import React from 'react'
 import './style.css'
+import NotifController from '../../Controllers/NotifController'
 
-const Notification = ({data}) => {
+const Notification = ({ id, data, markAsRead}) => {
+
   return (
     <div className='flex profile-notif'>
         {data}
 
-        <button className='notif-mark-as-read'>Mark as Read</button>
+        <button onClick={() => markAsRead(id)} className='notif-mark-as-read'>Mark as Read</button>
     </div>
   )
 }

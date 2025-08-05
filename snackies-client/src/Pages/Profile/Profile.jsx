@@ -88,6 +88,12 @@ const Profile = () => {
     navigate("");
   };
 
+  const markAsRead = (id) => {
+    setNotif(prevNotif => prevNotif.filter(n => n.id !== id));
+
+    // NotifController.markAsRead();
+  };
+
   return (
     <div>
       <Header />
@@ -180,7 +186,14 @@ const Profile = () => {
 
                 <div className="account-inputs display-column notif-container">
                   {notif.map((n) => {
-                    return <Notification data={n.data["text"]} />;
+                    return (
+                      <Notification
+                        key={n.id}
+                        id={n.id}
+                        data={n.data["text"]}
+                        markAsRead={markAsRead}
+                      />
+                    );
                   })}
                 </div>
               </div>
