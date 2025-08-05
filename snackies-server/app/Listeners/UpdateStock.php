@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\OrderPlaced;
 use App\Models\Item;
 use App\Models\OrderItem;
+use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
@@ -12,7 +13,7 @@ use Throwable;
 
 class UpdateStock implements ShouldQueue
 {
-    use InteractsWithQueue;
+    use InteractsWithQueue, Queueable;
     /**
      * Create the event listener.
      */

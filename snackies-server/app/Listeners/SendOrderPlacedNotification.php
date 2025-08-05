@@ -2,13 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\OrderPlaced;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendOrderNotification implements ShouldQueue
+class SendOrderPlacedNotification
 {
-    use InteractsWithQueue;
     /**
      * Create the event listener.
      */
@@ -20,7 +18,7 @@ class SendOrderNotification implements ShouldQueue
     /**
      * Handle the event.
      */
-    public function handle(OrderPlaced $event): void
+    public function handle(object $event): void
     {
         //
     }
