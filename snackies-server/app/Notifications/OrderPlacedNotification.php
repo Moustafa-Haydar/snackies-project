@@ -38,9 +38,10 @@ class OrderPlacedNotification extends Notification implements ShouldQueue
      */
     public function toArray(object $notifiable): array
     {
+        $orderId = $this->order->id;
+        $total = $this->order->total_amount;
         return [
-            "order_id" => $this->order->id,
-            "total_amout" => $this->order->total_amount,
+            "text" => "Your order number $orderId has been successfully placed with a total of $$total."
         ];
     }
 }

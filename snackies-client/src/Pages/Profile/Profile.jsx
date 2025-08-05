@@ -180,7 +180,7 @@ const Profile = () => {
 
                 <div className="account-inputs display-column">
                   {notif.map((n) => {
-                    return <Notification data={n.data["order_id"]} />;
+                    return <Notification data={n.data["text"]} />;
                   })}
                 </div>
               </div>
