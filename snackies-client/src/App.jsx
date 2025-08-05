@@ -5,6 +5,7 @@ import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import Shop from './Pages/ShopPage/Shop';
 import Profile from './Pages/Profile/Profile';
+import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
 
 import './styles/index.css';
 import './styles/style.css';
@@ -32,7 +33,7 @@ function App() {
         
 
         {/* Protected Routes */}
-
+        <Route path="/admin" element={<AdminDashboard />} />
 
       </Routes>
     </Router>
