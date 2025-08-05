@@ -39,4 +39,10 @@ class UserService
 
     }
 
+    public static function getNotifications($id) {
+        $user = User::find($id);
+
+        return $user->unreadNotifications;
+    }
+
 }

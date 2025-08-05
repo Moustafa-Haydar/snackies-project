@@ -7,6 +7,7 @@ import { TokenContext } from '../../Contexts/TokenContext';
 import Button from '../../Components/Button/Button';
 import UserAccountInput from '../../Components/UserAccountInput/UserAccountInput';
 import UserController from '../../Controllers/UserController';
+import Notification from '../../Components/Notification/Notification';
 
 const Profile = () => {
 
@@ -114,6 +115,13 @@ return (
                             Favorites
                         </button>
 
+                        <button
+                            className="account-container-link"
+                            onClick={() => changeCurrentLink('notifications')}
+                            >
+                            Notifications
+                        </button>
+
                     </div>
                     
                 </div>
@@ -149,6 +157,21 @@ return (
                     </div>
                 )}
 
+                {currentLink === 'notifications' && (
+
+                    <div className="account-container-right display-column">
+
+                        <div className="account-container-right-title-container">
+                            <p className='account-container-right-title'>
+                                Your Notifications
+                            </p>
+                        </div>
+
+                        <div className="account-inputs display-column">
+                                <Notification />
+                        </div>
+                    </div>
+                )}
             </div>
 
         </div>
