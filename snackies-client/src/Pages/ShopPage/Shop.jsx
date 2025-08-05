@@ -9,6 +9,7 @@ import ProductController from "../../Controllers/ProductsController";
 import ShopFilter from "../../Components/ShopFilter/ShopFilter";
 import filterIcon from '../../Assets/Icons/filter-solid-full.svg';
 import xIcon from '../../Assets/Icons/x-solid-full.svg';
+import ChatBtn from "../../Components/ChatBtn/ChatBtn";
 
 const Shop = () => {
     const [categories, setCategories] = useState([]);
@@ -62,6 +63,7 @@ const Shop = () => {
 
     return (
         <div className="">
+             <ChatBtn/>
             <Header />
             <div className="categories-container">
                 {categories.map(category => (
