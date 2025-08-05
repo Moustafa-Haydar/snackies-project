@@ -46,6 +46,7 @@ Route::group(["prefix" => "v0.1"], function () {
         Route::post("/update/{id}", [UserController::class, "updateUser"]);
 
         Route::get("/notifications/{id}", [UserController::class, "getNotifications"]);
+        Route::post("/mark_as_read", [UserController::class, "markAsRead"]);
 
         Route::get("/get_cart/{id}", [CartController::class, "getCartByUserId"]);
         // ID being passed is user ID, get their cart

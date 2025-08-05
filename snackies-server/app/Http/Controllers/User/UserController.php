@@ -47,4 +47,8 @@ class UserController extends Controller
     function getNotifications(Request $request, $id) {
         return $this->responseJSON(UserService::getNotifications($id));
     }
+
+    function markAsRead(Request $request) {
+        return $this->responseJSON(UserService::markAsRead($request));
+    }
 }

@@ -91,7 +91,7 @@ const Profile = () => {
   const markAsRead = (id) => {
     setNotif(prevNotif => prevNotif.filter(n => n.id !== id));
 
-    // NotifController.markAsRead();
+    NotifController.markAsRead(tokenState, userState.id, id);
   };
 
   return (
