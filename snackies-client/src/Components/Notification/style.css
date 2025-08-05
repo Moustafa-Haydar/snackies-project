@@ -1,5 +1,9 @@
 .profile-notif {
     background-color: var(--bg-color);
+    width: 100%;
+    justify-content: space-between;
+    padding: 1%;
+    border-radius: 8px;
 }
 
 .notif-mark-as-read {

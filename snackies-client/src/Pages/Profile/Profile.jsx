@@ -171,14 +171,14 @@ const Profile = () => {
             )}
 
             {currentLink === "notifications" && (
-              <div className="account-container-right display-column">
+              <div className="account-container-right-notif display-column">
                 <div className="account-container-right-title-container">
                   <p className="account-container-right-title">
                     Your Notifications
                   </p>
                 </div>
 
-                <div className="account-inputs display-column">
+                <div className="account-inputs display-column notif-container">
                   {notif.map((n) => {
                     return <Notification data={n.data["text"]} />;
                   })}
