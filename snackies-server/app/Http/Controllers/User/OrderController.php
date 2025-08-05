@@ -37,7 +37,6 @@ class OrderController extends Controller
                 // Send Email - Queued Job
                 SendEmailJob::dispatch($user['email'], $user['id'], $order['id']);
                 OrderPlaced::dispatch($order);
-                $user->notify(new OrderPlacedNotification($order));
 
                 return $this->responseJSON($order, "Order placed successfully");
             }
