@@ -14,6 +14,9 @@ import "./style.css";
 import Footer from "../../Components/Footer/Footer";
 import CategoryCard from "../../Components/CategoryCard/CategoryCard";
 import CategoriesController from "../../Controllers/CategoriesController";
+import ChatBtn from "../../Components/ChatBtn/ChatBtn";
+import ReviewCard from "../../Components/ReviewCard/ReviewCard";
+import ReviewsController from "../../Controllers/ReviewsController";
 
 // required code to use token provider
 
@@ -29,9 +32,14 @@ import CategoriesController from "../../Controllers/CategoriesController";
 const LandingPage = () => {
   const sliderRef = useRef();
   const [categories, setCategories] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   useEffect (() => {
     CategoriesController.getAllCategories(setCategories);
+  }, [])
+
+  useEffect (() => {
+    ReviewsController.getAllReviews(setReviews);
   }, [])
 
   const carouselSettings = {
@@ -55,6 +63,7 @@ const LandingPage = () => {
 
   return (
     <div>
+      <ChatBtn/>
       <Header/>
 
       <div className="flex hero-section">
@@ -78,8 +87,8 @@ const LandingPage = () => {
 
         <div className="flex landing-category-cards-div">
           {categories.map((cat) => {
-                                return <CategoryCard key={cat.id} imageSrc={cat.image_url} categoryName={cat.name}/>
-                            })}
+            return <CategoryCard key={cat.id} imageSrc={cat.image_url} categoryName={cat.name}/>
+           })}
         </div>
       </div>
 
@@ -126,25 +135,10 @@ const LandingPage = () => {
 
         <div className="slider-container">
           <Slider ref={sliderRef} {...carouselSettings}>
-            <div className="flex review-card-div">
-              <h1>Test</h1>
-            </div>
-
-            <div className="flex review-card-div">
-              <h1>Test</h1>
-            </div>
-
-            <div className="flex review-card-div">
-              <h1>Test</h1>
-            </div>
-
-            <div className="flex review-card-div">
-              <h1>Test</h1>
-            </div>
-
-            <div className="flex review-card-div">
-              <h1>Test</h1>
-            </div>
+            {reviews.map((rev) => {
+            return <ReviewCard key={rev.id} 
+            reviewText={rev.text} reviewerName={rev.user.first_name} productName={rev.item.name} rating ={rev.rating}/>
+           })}
           </Slider>
         </div>
 

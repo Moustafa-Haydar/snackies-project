@@ -9,6 +9,7 @@ import ProductController from "../../Controllers/ProductsController";
 import ShopFilter from "../../Components/ShopFilter/ShopFilter";
 import filterIcon from '../../Assets/Icons/filter-solid-full.svg';
 import xIcon from '../../Assets/Icons/x-solid-full.svg';
+import ChatBtn from "../../Components/ChatBtn/ChatBtn";
 
 const Shop = () => {
     const [categories, setCategories] = useState([]);
@@ -16,6 +17,7 @@ const Shop = () => {
     const [sortBy, setSortBy] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [showFilter, setShowFilter] = useState(false);
+    const [priceRange, setPriceRange] = useState(100);
 
     const toggleContent = () => {
         setShowFilter(!showFilter);
@@ -37,11 +39,17 @@ const Shop = () => {
         setSortBy(prevSortBy => (prevSortBy === choice ? null : choice));
     };
     
+    const handlePriceChange = (event) => {
+        setPriceRange(event.target.value);
+    };
+
     let productsToDisplay = [...products];
     
     if (selectedCategory) {
         productsToDisplay = productsToDisplay.filter(product => product.category.name === selectedCategory);
     }
+    
+    productsToDisplay = productsToDisplay.filter(product => product.price <= priceRange);
 
     if (sortBy === "A-Z") {
         productsToDisplay.sort((a, b) => a.name.localeCompare(b.name));
@@ -55,6 +63,7 @@ const Shop = () => {
 
     return (
         <div className="">
+             <ChatBtn/>
             <Header />
             <div className="categories-container">
                 {categories.map(category => (
@@ -67,7 +76,6 @@ const Shop = () => {
                 ))}
             </div>
 
-            
             <div className="filter-content">
                 <button className='filterbtn' onClick={toggleContent}>
                     <img
@@ -95,11 +103,22 @@ const Shop = () => {
                                 selectedChoice={sortBy}
                                 onSelect={handleCheckboxSelect}
                             />
-                            {/* <h2 className="filter-title">Filter By:</h2>
+                            <h2 className="filter-title">Filter By:</h2>
                             <div className="price-slider-container">
                                 <span className="sub-label">Price:</span>
-                                <input type="range" className="price-slider" min="0" max="1000" />
-                            </div> */}
+                                <input
+                                    type="range"
+                                    className="price-slider"
+                                    min="0"
+                                    max="100"
+                                    value={priceRange}
+                                    onChange={handlePriceChange}
+                                />
+                                <div className="price-label">
+                                    <span className="min-price">$0</span>
+                                    <span className="max-price">${priceRange}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 )}
@@ -117,7 +136,6 @@ const Shop = () => {
                         />
                     ))}
                 </div>
-
             </div>
             <Footer />
         </div>
