@@ -36,7 +36,7 @@ const Register = () => {
 
             <div className="register">
 
-                <h1 className='register-title'>Reigster</h1>
+                <h1 className='register-title'>Register</h1>
 
                 <div className="response-message">
                     {ResponseMessage}
@@ -46,19 +46,19 @@ const Register = () => {
                     <div className="register-name-div display-row">
 
                     <Input
-                        label="First-name"
+                        label="First Name"
                         type="text"
                         value={first_name}
-                        placeholder="Enter your name"
+                        placeholder="First name"
                         name="firstname"
                         onChange={(e) => setFirstName(e.target.value)}
                     />
 
                     <Input
-                        label="Last-name"
+                        label="Last Name"
                         type="text"
                         value={last_name}
-                        placeholder="Enter your name"
+                        placeholder="Last name"
                         name="lastName"
                         onChange={(e) => setLastName(e.target.value)}
                     />
@@ -89,7 +89,7 @@ const Register = () => {
                         onClick={handleRegister}/>
                     <p>Already have an acount? 
                         <span className='register-login-link'
-                        onClick={() => navigate('/login')}>Login</span>
+                        onClick={() => navigate('/login')}> Login?</span>
                     </p>
                 </div>
 

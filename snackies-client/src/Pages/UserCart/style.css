@@ -32,6 +32,9 @@
     overflow-x: hidden;
     direction: rtl;
 }
+.cart-item-cards::-webkit-scrollbar {
+    display: none;
+}
 
 .cart-total {
     margin-left: 2%;

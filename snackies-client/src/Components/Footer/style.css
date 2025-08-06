@@ -21,7 +21,7 @@
     max-width: 230px; 
     padding: 10px;
     text-align: left;
-    align-items: center;
+    align-items: left;
     justify-content: center;
     display: flex;
     flex-direction: column;

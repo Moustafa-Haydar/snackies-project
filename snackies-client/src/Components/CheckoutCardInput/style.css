@@ -13,6 +13,8 @@
 }
 
 .narrow-input {
-    width: 80%;
-    margin-left: 10px;
+    width: 100%;
+}
+input.checkout-input.narrow-input{
+width:80%;
 }

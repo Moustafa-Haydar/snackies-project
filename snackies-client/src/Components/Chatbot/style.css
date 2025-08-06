@@ -127,6 +127,12 @@
     font-size: 0.95rem;
     width: 100%;
 }
+
+.chat-form input{
+    position: relative;
+    left: 10px;
+
+}
 .chat-form button{
     height: 27px;
     width: 27px;
