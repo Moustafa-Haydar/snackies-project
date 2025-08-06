@@ -89,7 +89,7 @@ const Register = () => {
                         onClick={handleRegister}/>
                     <p>Already have an acount? 
                         <span className='register-login-link'
-                        onClick={() => navigate('/login')}> Login?</span>
+                        onClick={() => navigate('/login')}> Login</span>
                     </p>
                 </div>
 
