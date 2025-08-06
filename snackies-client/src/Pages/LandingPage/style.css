@@ -24,6 +24,7 @@
   width: 80%;
   text-align: left;
   font-size: 20px;
+  margin-top: 2%;
   margin-bottom: 5%;
   color: var(--primary-color);
   font-family: var(--font-secondary);
@@ -85,7 +86,7 @@
   width: 30%;
   align-items: center;
   justify-content: center;
-  gap: 20%;
+  gap: 12%;
   background-color: var(--secondary-color);
 }
 
@@ -95,7 +96,7 @@
 }
 
 .product-of-the-day-description {
-  font-size: 18px;
+  font-size: 20px;
   width: 60%;
   height: fit-content;
   text-align: center;
@@ -109,9 +110,9 @@
 }
 
 .best-sellers {
-  height: 60dvh;
-  background-color: white;
-  padding-top: 4%;
+  height: 75dvh;
+  background-color: var(--bg-color);
+  padding-top: 0.5%;
   --mask: radial-gradient(35.38px at 50% 48.05px, #000 99%, #0000 101%)
       calc(50% - 62px) 0/124px 51% repeat-x,
     radial-gradient(35.38px at 50% -17.05px, #0000 99%, #000 101%) 50% 31px/124px
@@ -123,6 +124,10 @@
   -webkit-mask: var(--mask);
   mask: var(--mask);
   margin: -50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
 }
 
 .best-sellers-cards {
@@ -169,8 +174,8 @@
 }
 
 .landing-reviews {
-  height: 70dvh;
-  padding: 8% 0 3%;
+  height: 1dvh;
+  padding: 1% 0 1%;
   background-color: var(--secondary-color);
   align-items: center;
 }
@@ -185,7 +190,7 @@
 }
 
 .slider-container {
-  width: 80%;
+  width:80%;
 }
 
 .review-card-div {
@@ -225,8 +230,4 @@
 .landing-review-buttons {
   background: none;
   border: none;
-}
-
-.slider-container{
-  width: 75%;
 }
