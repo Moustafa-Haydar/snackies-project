@@ -5,13 +5,17 @@ import Logo from "../../Assets/logos/snackies-logo-orange-nobg.webp";
 import NotificationIcon from "../../Assets/Icons/bell-solid-full.svg";
 import UserIcon from "../../Assets/Icons/user.svg";
 import UserController from "../../Controllers/UserController";
+import ProductsController from "../../Controllers/ProductsController";
 
 import './style.css';
 
 const AdminDashboard = () => {
 
     const [currentLink, setCurrentLink] = useState('account');
+
     const [usersState, setUsersState] = useState([]);
+    const [productsState, setProductsState] = useState([]);
+    const [ordersState, setOrdersState] = useState([]);
 
     const changeCurrentLink = (Link) => {
         setCurrentLink(Link);
@@ -22,8 +26,19 @@ const AdminDashboard = () => {
         setUsersState(users);
     }
 
+    const fetchProducts = async () => {
+        const products = await ProductsController.getAllProducts(setProductsState);
+    }
+
+    // const fetchOrders = async () => {
+    //     const orders = await Orders.getAllProducts();
+    //     setOrdersState(orders);
+// }
+
+
     useEffect (() => {
         fetchUsers();
+        fetchProducts();
     }, []);
 
     return ( 
@@ -78,26 +93,70 @@ const AdminDashboard = () => {
 
                 <div className="admin-table table">
                     
-                        <table>
-                            <tr>
-                                <th>Id</th>
-                                <th>First_name</th>
-                                <th>Last_name</th>
-                                <th>Email</th>
-                            </tr>
+                        {currentLink === "clients" && 
+                            <table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>First_name</th>
+                                    <th>Last_name</th>
+                                    <th>Email</th>
+                                </tr>
 
-                            <tbody>
-                                {usersState.map((user) => (
-                                    <tr key={user.id}>
-                                    <td>{user.id}</td>
-                                    <td>{user.first_name}</td>
-                                    <td>{user.last_name}</td>
-                                    <td>{user.email}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
+                                <tbody>
+                                    {usersState.map((user) => (
+                                        <tr key={user.id}>
+                                        <td>{user.id}</td>
+                                        <td>{user.first_name}</td>
+                                        <td>{user.last_name}</td>
+                                        <td>{user.email}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
 
-                        </table>
+                            </table>
+                        }
+
+                        {currentLink === "products" && 
+                            <table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>First_name</th>
+                                    <th>Last_name</th>
+                                    <th>Email</th>
+                                </tr>
+
+                                <tbody>
+                                    {productsState.map((product) => (
+                                        <tr key={product.id}>
+                                        <td>{product.id}</td>
+
+                                        </tr>
+                                    ))}
+                                </tbody>
+
+                            </table>
+                        }
+
+                        {currentLink === "order_lists" && 
+                            <table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>First_name</th>
+                                    <th>Last_name</th>
+                                    <th>Email</th>
+                                </tr>
+
+                                <tbody>
+                                    {usersState.map((user) => (
+                                        <tr key={user.id}>
+                                        <td>{user.id}</td>
+
+                                        </tr>
+                                    ))}
+                                </tbody>
+
+                            </table>
+                        }
 
                 </div>
 
