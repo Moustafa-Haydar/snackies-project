@@ -112,7 +112,7 @@ const LandingPage = () => {
         <div className="product-of-the-day-image">Background Image</div>
       </div>
 
-      <div className="flex column best-sellers">
+      <div className="flex column best-sellers" id="review-section">
         <div className="best-sellers-scrolling-wrapper">
           <Marquee autoFill={true}>
             <div className="flex best-sellers-scroll-banner-element">
