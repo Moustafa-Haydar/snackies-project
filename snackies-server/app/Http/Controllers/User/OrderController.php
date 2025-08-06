@@ -124,4 +124,14 @@ class OrderController extends Controller
         }
     }
 
+    // ADMIN METHODS    
+    public function getAllOrders(Request $request)
+    {
+        try {
+            $orders = OrderService::getAllOrders();
+            return $this->responseJSON($orders, "All orders retrieved successfully for admin");
+        } catch (\Exception $e) {
+            return $this->responseJSON(null, "Error: " . $e->getMessage(), 500);
+        }
+    }
 }
