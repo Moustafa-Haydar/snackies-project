@@ -1,6 +1,6 @@
 
 .header {
-    padding: 2vh 3vw;
+    padding: 3vh 3vw;
     height: 5vh;
     justify-content: space-between;
     align-items: center;
@@ -26,6 +26,10 @@
 
 .admin-notification-icon {
     width: 2.5vw;
+}
+
+.admin-user-icon {
+    width: 2.2vw;
 }
 
 .admin-left-side {

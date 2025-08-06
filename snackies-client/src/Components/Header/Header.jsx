@@ -5,6 +5,7 @@ import './style.css';
 import userIcon from '../../Assets/Icons/circle-user-solid-full.svg';
 import cartIcon from '../../Assets/Icons/cart-shopping-solid-full.svg';
 import snackiesLogo from '../../Assets/logos/snackies-logo-orange-nobg.webp';
+import notifInactive from '../../Assets/Icons/notification-inactive.svg';
 import { TokenContext } from '../../Contexts/TokenContext.jsx';
 
 const Header = () => {
@@ -27,10 +28,16 @@ const Header = () => {
                 </div>
 
                 <div className='icons-section'>
-                    <img src={cartIcon} alt="cartIcon" 
-                        onClick={() => navigate(tokenState? '/cart' : '/login')} />
+                  
+                    <img src={notifInactive} alt="userIcon" 
+                        onClick={() => navigate(tokenState? '/profile' : '/login')}/>
                     <img src={userIcon} alt="userIcon" 
                         onClick={() => navigate(tokenState? '/profile' : '/login')}/>
+
+//<img src={cartIcon} alt="cartIcon" 
+                        //onClick={() => navigate(tokenState? '/cart' : '/login')} />
+                    //<img src={userIcon} alt="userIcon" 
+                        //onClick={() => navigate(tokenState? '/profile' : '/login')}/>
                  </div>
 
 
