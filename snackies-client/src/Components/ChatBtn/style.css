@@ -1,4 +1,5 @@
 .chatbot-container {
+  width: 330px;
   position: fixed;
   bottom: 56px;
   right: 20px;
