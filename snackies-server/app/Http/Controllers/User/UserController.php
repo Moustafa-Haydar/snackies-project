@@ -51,4 +51,16 @@ class UserController extends Controller
     function markAsRead(Request $request) {
         return $this->responseJSON(UserService::markAsRead($request));
     }
+
+    // ADMIN METHODS
+    
+    public function getAllUsers(Request $request)
+    {
+        try {
+            $users = User::with(['orders', 'reviews'])->get();
+            return $this->responseJSON($users, "All users retrieved successfully for admin");
+        } catch (\Exception $e) {
+            return $this->responseJSON(null, "Error: " . $e->getMessage(), 500);
+        }
+    }
 }
