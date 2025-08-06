@@ -1,32 +1,27 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { TokenContext } from "./TokenContext";
+import TokenController from "../Controllers/TokenController";
 
-// Token Provider
-// store a user's auth token
-// provide access to it across the app
-// allow updates (e.g., login, logout)
+// Notif provider to show if there are unread notifications
 
 export const NotifContext = createContext();
 
 const NotifProvider = ({ children }) => {
-    const [notifState, setNotifState] = useState(
-        localStorage.getItem('token') || null);
-    const [notifNumState, setNotifNumState] = useState(0);
+  // const saveToken = (newToken) => {
+  //     setTokenState(newToken);
+  //     localStorage.setItem('token', newToken);
+  // };
 
-    // const saveToken = (newToken) => {
-    //     setTokenState(newToken);
-    //     localStorage.setItem('token', newToken);
-    // };
+  // const clearToken = () => {
+  //     setTokenState(null);
+  //     localStorage.removeItem('token');
+  // };
 
-    // const clearToken = () => {
-    //     setTokenState(null);
-    //     localStorage.removeItem('token');
-    // };
-
-    return (
-        <NotifContext.Provider value={{ notifState }}>
-            {children}
-        </NotifContext.Provider>
-    );
+  return (
+    <NotifContext.Provider value={{}}>
+      {children}
+    </NotifContext.Provider>
+  );
 };
 
 export default NotifProvider;

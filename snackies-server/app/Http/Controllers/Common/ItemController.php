@@ -73,4 +73,26 @@ class ItemController extends Controller
             return $this->responseJSON(null, "Error retrieving product of the day: " . $e->getMessage(), 500);
         }
     }
+
+    // ADMIN METHODS
+    
+    public function getAllProducts(Request $request)
+    {
+        try {
+            // Admin can see ALL products, including those with 0 stock
+            $products = Item::with(['category', 'reviews'])
+                           ->orderBy('created_at', 'desc')
+                           ->get();
+
+            // Add review scores to each product
+            $products->each(function ($product) {
+                $product->average_rating = $product->average_rating;
+                $product->review_count = $product->review_count;
+            });
+
+            return $this->responseJSON($products, "All products retrieved successfully for admin");
+        } catch (\Exception $e) {
+            return $this->responseJSON(null, "Error retrieving products: " . $e->getMessage(), 500);
+        }
+    }
 } 

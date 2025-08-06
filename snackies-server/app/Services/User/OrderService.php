@@ -118,4 +118,11 @@ class OrderService
                    ->orderBy('created_at', 'desc')
                    ->get();
     }
+
+    public static function getAllOrders()
+    {
+        return Order::with(['items', 'user'])
+                   ->orderBy('created_at', 'desc')
+                   ->get();
+    }
 } 

@@ -13,12 +13,10 @@
 .product-page-image {
     max-width: 70%;
     height: 70%;
-    border: 1px solid black;
     border-radius: 20px;
 }
 
 .product-page-info {
-    border-left: 1px solid black;
     justify-content: start;
     align-items: start;
     max-width: 38%;
@@ -35,8 +33,8 @@
     font-size: 28px;
 }
 
-.product-page-info-fav-gift {
-    
+.product-page-info-title .star-rating {
+    justify-content: left;
 }
 
 .product-page-button {
@@ -45,7 +43,7 @@
     justify-content: start;
     align-items: center;
     width: 100%;
-    gap: 10%;
+    gap: 10px;
     margin-bottom: 4%;
 }
 

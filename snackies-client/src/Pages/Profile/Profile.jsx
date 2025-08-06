@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import "./style.css";
 import TokenController from "./../../Controllers/TokenController";
