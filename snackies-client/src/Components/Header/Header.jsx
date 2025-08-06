@@ -5,7 +5,7 @@ import './style.css';
 import userIcon from '../../Assets/Icons/circle-user-solid-full.svg';
 import cartIcon from '../../Assets/Icons/cart-shopping-solid-full.svg';
 import snackiesLogo from '../../Assets/logos/snackies-logo-orange-nobg.webp';
-import notifInactive from '../../Assets/Icons/notification-inactive.svg';
+import notifInactive from '../../Assets/Icons/bell-solid-full.svg';
 import { TokenContext } from '../../Contexts/TokenContext.jsx';
 
 const Header = () => {
@@ -31,6 +31,8 @@ const Header = () => {
                   
                     <img src={notifInactive} alt="userIcon" 
                         onClick={() => navigate(tokenState? '/profile' : '/login')}/>
+                    <img src={cartIcon} alt="userIcon" 
+                        onClick={() => navigate(tokenState? '/profile' : '/login')}/>
                     <img src={userIcon} alt="userIcon" 
                         onClick={() => navigate(tokenState? '/profile' : '/login')}/>
 
@@ -39,9 +41,7 @@ const Header = () => {
                     //<img src={userIcon} alt="userIcon" 
                         //onClick={() => navigate(tokenState? '/profile' : '/login')}/> */}
                  </div>
-
-
-            </div>
+                </div>
         </header>
     );
 }
