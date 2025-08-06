@@ -9,7 +9,6 @@
 .chatbot-popup{
     position: relative;
     width: 100%;
-    height: 100%;
     overflow: hidden;
     border-radius: var(--radius);
 }
@@ -38,7 +37,7 @@
     font-size: 24px;
     font-weight: bold;
 }
-.chat-header button{
+/* .chat-header button{
     height: 27px;
     width: 27px;
     border: none;
@@ -49,22 +48,21 @@
     transition: 0.2s ease;
     flex-shrink: 0;
     align-items: center;
-}
+} */
 
 .chat-body{
+    height: 250px;
     overflow-y: auto;
-    padding: 25px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-bottom: 80px;
     scrollbar-width: thin;
     scrollbar-color: transparent;
 }
 
 .chat-body .message{
     display: flex;
-    align-items: center;
     gap: 10px;
 }
 

@@ -10,15 +10,15 @@
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-around;
-    gap: 30px;
+    gap: 10px;
 }
 
-/* .about-us-section, */
+.about-us-section,
 .shop-section,
 .socials-section,
 .profile-section {
     flex: 1; 
-    min-width: 200px; 
+    max-width: 230px; 
     padding: 10px;
     text-align: left;
     align-items: center;
