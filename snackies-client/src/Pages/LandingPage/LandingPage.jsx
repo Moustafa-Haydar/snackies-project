@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import starIcon from "../../Assets/Icons/star-solid-full.svg";
 import leftArrow from "../../Assets/Icons/empty-arrow-left-svgrepo-com.svg";
 import rightArrow from "../../Assets/Icons/empty-arrow-right-svgrepo-com.svg";
-import Header from '../../Components/Header/Header';
+import Header from "../../Components/Header/Header";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
@@ -23,24 +23,23 @@ import ReviewsController from "../../Controllers/ReviewsController";
 // import { TokenContext } from '../../Contexts/TokenContext';
 //   // test token
 //   const { tokenState } = useContext(TokenContext);
-  
+
 //   useEffect(() => {
 //     console.log(tokenState);
 //   });
-
 
 const LandingPage = () => {
   const sliderRef = useRef();
   const [categories, setCategories] = useState([]);
   const [reviews, setReviews] = useState([]);
 
-  useEffect (() => {
+  useEffect(() => {
     CategoriesController.getAllCategories(setCategories);
-  }, [])
+  }, []);
 
-  useEffect (() => {
+  useEffect(() => {
     ReviewsController.getAllReviews(setReviews);
-  }, [])
+  }, []);
 
   const carouselSettings = {
     dots: true,
@@ -63,18 +62,18 @@ const LandingPage = () => {
 
   return (
     <div>
-      <ChatBtn/>
-      <Header/>
+      <ChatBtn />
+      <Header />
 
       <div className="flex hero-section">
         <img className="hero-items" src={HeroItems} alt="Assorted Items"></img>
 
         <div className="flex column hero-section-subdiv">
+          <h2>Welcome to Snackies!</h2>
           <p className="hero-section-text">
-            Welcome to Snackies! A Lebanese website all about revolutionizing
-            the snacking experience. Whether you enjoy the fragrance of cheese,
-            the sweetness of chocolate or the crunch of nuts, we've got you
-            covered!
+            A Lebanese website all about revolutionizing the snacking
+            experience. Whether you enjoy the fragrance of cheese, the sweetness
+            of chocolate or the crunch of nuts, we've got you covered!
           </p>
           <Button btn_name={"View Our Products"} />
         </div>
@@ -87,8 +86,14 @@ const LandingPage = () => {
 
         <div className="flex landing-category-cards-div">
           {categories.map((cat) => {
-            return <CategoryCard key={cat.id} imageSrc={cat.image_url} categoryName={cat.name}/>
-           })}
+            return (
+              <CategoryCard
+                key={cat.id}
+                imageSrc={cat.image_url}
+                categoryName={cat.name}
+              />
+            );
+          })}
         </div>
       </div>
 
@@ -111,7 +116,8 @@ const LandingPage = () => {
         <div className="best-sellers-scrolling-wrapper">
           <Marquee autoFill={true}>
             <div className="flex best-sellers-scroll-banner-element">
-              <h1 className="best-sellers-title">Reviews</h1>
+
+              <h1 className="landing-reviews-title">Reviews</h1>
 
               <img
                 className="best-sellers-star-icon"
@@ -121,24 +127,20 @@ const LandingPage = () => {
             </div>
           </Marquee>
         </div>
-
-        <div className="flex best-sellers-cards">
-          <div className="flex column flex-center best-sellers-card">
-            <div className="best-sellers-image">Card Image</div>
-            <h3>Product Title</h3>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex column landing-reviews">
-        <h1 className="landing-reviews-title">Reviews</h1>
-
+        
         <div className="slider-container">
           <Slider ref={sliderRef} {...carouselSettings}>
             {reviews.map((rev) => {
-            return <ReviewCard key={rev.id} 
-            reviewText={rev.text} reviewerName={rev.user.first_name} productName={rev.item.name} rating ={rev.rating}/>
-           })}
+              return (
+                <ReviewCard
+                  key={rev.id}
+                  reviewText={rev.text}
+                  reviewerName={rev.user.first_name}
+                  productName={rev.item.name}
+                  rating={rev.rating}
+                />
+              );
+            })}
           </Slider>
         </div>
 
@@ -160,6 +162,9 @@ const LandingPage = () => {
           </button>
         </div>
       </div>
+
+        {/* <div className="flex column landing-reviews">
+        </div> */}
 
       <Footer />
     </div>

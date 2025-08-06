@@ -30,10 +30,10 @@ const Profile = () => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      // Your useEffect code here to be run on update
       getNotif();
     }
   }, [userState]);
+  
   // Decode token and get user info
   useEffect(() => {
     TokenController.decodeToken(tokenState, setUserState);
