@@ -112,15 +112,11 @@
 .best-sellers {
   height: 75dvh;
   background-color: var(--bg-color);
-  padding-top: 0.5%;
-  --mask: radial-gradient(35.38px at 50% 48.05px, #000 99%, #0000 101%)
-      calc(50% - 62px) 0/124px 51% repeat-x,
-    radial-gradient(35.38px at 50% -17.05px, #0000 99%, #000 101%) 50% 31px/124px
-      calc(51% - 31px) repeat-x,
-    radial-gradient(35.38px at 50% calc(100% - 48.05px), #000 99%, #0000 101%)
-      calc(50% - 62px) 100%/124px 51% repeat-x,
-    radial-gradient(35.38px at 50% calc(100% + 17.05px), #0000 99%, #000 101%)
-      50% calc(100% - 31px) / 124px calc(51% - 31px) repeat-x;
+  padding-top: 1%;
+  --mask: radial-gradient(34.99px at 50% 48px, #000 99%, #0000 101%)
+      calc(50% - 60px) 0/120px 100%,
+    radial-gradient(34.99px at 50% -18px, #0000 99%, #000 101%) 50% 30px/120px
+      100% repeat-x;
   -webkit-mask: var(--mask);
   mask: var(--mask);
   margin: -50px 0;
@@ -190,7 +186,7 @@
 }
 
 .slider-container {
-  width:80%;
+  width: 80%;
 }
 
 .review-card-div {

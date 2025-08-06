@@ -162,8 +162,8 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className="flex column landing-reviews">
-      </div>
+        {/* <div className="flex column landing-reviews">
+        </div> */}
 
       <Footer />
     </div>
