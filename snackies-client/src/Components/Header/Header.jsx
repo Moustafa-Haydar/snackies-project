@@ -34,10 +34,10 @@ const Header = () => {
                     <img src={userIcon} alt="userIcon" 
                         onClick={() => navigate(tokenState? '/profile' : '/login')}/>
 
-//<img src={cartIcon} alt="cartIcon" 
+                    {/* <img src={cartIcon} alt="cartIcon" 
                         //onClick={() => navigate(tokenState? '/cart' : '/login')} />
                     //<img src={userIcon} alt="userIcon" 
-                        //onClick={() => navigate(tokenState? '/profile' : '/login')}/>
+                        //onClick={() => navigate(tokenState? '/profile' : '/login')}/> */}
                  </div>
 
 
