@@ -55,9 +55,6 @@ const Chatbot =({ userId }) =>{
                         <img src={botIcon} alt="Chatbot Icon" />
                         <h2 className="logo-text">Snackies-LB chatbot</h2>
                     </div>
-                    <button className="arrow-chatbot">
-                        <img src={arrowDown} alt="Close" />
-                    </button>
                 </div>
                 <div className="chat-body">
                     <div className="message bot-message">

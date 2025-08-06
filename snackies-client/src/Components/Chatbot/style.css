@@ -37,7 +37,7 @@
     font-size: 24px;
     font-weight: bold;
 }
-.chat-header button{
+/* .chat-header button{
     height: 27px;
     width: 27px;
     border: none;
@@ -48,7 +48,7 @@
     transition: 0.2s ease;
     flex-shrink: 0;
     align-items: center;
-}
+} */
 
 .chat-body{
     height: 250px;
