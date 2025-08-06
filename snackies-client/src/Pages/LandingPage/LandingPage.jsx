@@ -111,7 +111,7 @@ const LandingPage = () => {
         <div className="best-sellers-scrolling-wrapper">
           <Marquee autoFill={true}>
             <div className="flex best-sellers-scroll-banner-element">
-              <h1 className="best-sellers-title">Best Sellers</h1>
+              <h1 className="best-sellers-title">Reviews</h1>
 
               <img
                 className="best-sellers-star-icon"

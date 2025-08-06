@@ -20,7 +20,6 @@
 
 .register {
     background-color: white;
-    border: 2px solid var(--secondary-color);
     border-radius: 12px;
     width: 30vw;
     padding: 2.5rem;
@@ -32,10 +31,11 @@
 
 .register-inputs {
     gap: 3vh;
+    width: 28vw;
 }
 
-.register-inputs {
-    width: 28vw;
+.register-inputs input{
+    border-color: gray;
 }
 
 .register-btn {

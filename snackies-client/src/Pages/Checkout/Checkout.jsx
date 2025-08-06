@@ -9,6 +9,7 @@ import headerIcon from "../../Assets/Icons/card-header-icon.svg";
 import cardBrands from "../../Assets/Icons/credit-cards.svg";
 import CheckoutController from "../../Controllers/CheckoutController";
 import TokenController from "../../Controllers/TokenController";
+import Input from "../../Components/Input/Input";
 
 import "./style.css";
 import { useNavigate } from "react-router-dom";
@@ -68,31 +69,40 @@ const Checkout = () => {
 
               <div className="flex flex-center payment-card-body">
                 <article className="flex column payment-card-details">
-                  <CheckoutCardInput
-                    label={"Card Number"}
-                    inputWidth={"wide-input"}
-                    setField={setCardNum}
-                  />
-
-                  <div className="flex">
-                    <CheckoutCardInput
-                      label={"Expiry Date"}
-                      inputWidth={"narrow-input"}
-                      setField={setExpiryDate}
+                    <Input
+                        label="Card Number"
+                        type="text"
+                        value={cardNum}
+                        placeholder="Enter your Card Number "
+                        name="CardNum"
+                        onChange={(e) => setCardNum(e.target.value)}
                     />
-
-                    <CheckoutCardInput
-                      label={"CVC/CVV"}
-                      inputWidth={"narrow-input"}
-                      setField={setExtraCode}
+                    <div className="payment-card-details display-row">
+                     <Input
+                        label="Expiry Date"
+                        type="Date"
+                        value={expiryDate}
+                        placeholder="Expiry Date"
+                        name="ExpiryDate"
+                        onChange={(e) => setExpiryDate(e.target.value)}
                     />
-                  </div>
-
-                  <CheckoutCardInput
-                    label={"Name on Card"}
-                    inputWidth={"wide-input"}
-                    setField={setNameCard}
-                  />
+                    <Input
+                        label="CVC/CVV"
+                        type="password"
+                        value={extraCode}
+                        placeholder="Extra Code"
+                        name="Extra Code"
+                        onChange={(e) => setExtraCode(e.target.value)}
+                    />
+                    </div>
+                   <Input
+                        label="Name on Card"
+                        type="text"
+                        value={nameCard}
+                        placeholder="Enter your Name "
+                        name="NameCard"
+                        onChange={(e) => setNameCard(e.target.value)}
+                    />
                 </article>
               </div>
             </section>

@@ -104,7 +104,6 @@ const ProductPage = ({
         <div className="flex column product-page-info">
           <div className="flex column product-page-info-title">
             <h1>{currentProduct.productName}</h1>
-
             <StarRating rating={currentProduct.productRating} />
           </div>
 
