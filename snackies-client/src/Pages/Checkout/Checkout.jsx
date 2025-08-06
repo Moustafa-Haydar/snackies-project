@@ -35,7 +35,7 @@ const Checkout = () => {
   const savePayment = () => {
     const paymentDetails = { cardNum, expiryDate, extraCode, nameCard };
 
-    CheckoutController.placeOrder(userState.id);
+    CheckoutController.placeOrder(userState.id, tokenState);
     console.log(paymentDetails);
 
     navigate("/");

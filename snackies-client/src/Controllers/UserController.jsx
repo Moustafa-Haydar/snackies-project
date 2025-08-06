@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8000/api/v0.1/guest";
+const BASE_URL = "http://127.0.0.1:8000/api/v0.1/user";
 
 class UserController {
 

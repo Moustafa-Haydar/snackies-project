@@ -30,9 +30,9 @@ const Header = () => {
                 <div className='icons-section'>
                   
                     <img src={notifInactive} alt="userIcon" 
-                        onClick={() => navigate(tokenState? '/profile' : '/login')}/>
+                        onClick={() => navigate(tokenState? '/notifications' : '/login')}/>
                     <img src={cartIcon} alt="userIcon" 
-                        onClick={() => navigate(tokenState? '/profile' : '/login')}/>
+                        onClick={() => navigate(tokenState? '/cart' : '/login')}/>
                     <img src={userIcon} alt="userIcon" 
                         onClick={() => navigate(tokenState? '/profile' : '/login')}/>
 

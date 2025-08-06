@@ -40,7 +40,7 @@ const ProductPage = ({
 
   const addItemCart = () => {
     console.log("Adding this item to cart");
-    CartController.addItemToCart(currentProduct.productId, userState.id);
+    CartController.addItemToCart(currentProduct.productId, userState.id, tokenState);
     toast.info(currentProduct.productName + " added to cart!", {
       position: "top-right",
       autoClose: 5000,

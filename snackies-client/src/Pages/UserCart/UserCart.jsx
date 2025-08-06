@@ -44,7 +44,7 @@ const UserCart = () => {
   }, [tokenState]);
 
   const fetchCart = () => {
-    CartController.getCart(userState.id, setCartItems);
+    CartController.getCart(userState.id, setCartItems, tokenState);
   };
 
   const calculateTotal = () => {

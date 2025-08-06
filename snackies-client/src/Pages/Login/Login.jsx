@@ -74,7 +74,7 @@ const Login = () => {
                             onClick={handlelogin}/>
                         <p>Don't have an account? 
                             <span className='register-register-link'
-                            onClick={() => navigate('/register')}> Register?</span>
+                            onClick={() => navigate('/register')}> Register</span>
                             </p>
                     </div>
 
