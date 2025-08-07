@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import HeroItems from "../../Assets/images/LandingPage/hero_section_foreground.webp";
 import Button from "../../Components/Button/Button";
 import Marquee from "react-fast-marquee";
@@ -30,6 +31,8 @@ import ReviewsController from "../../Controllers/ReviewsController";
 
 const LandingPage = () => {
   const sliderRef = useRef();
+  const reviewsRef= useRef();
+  const location= useLocation();
   const [categories, setCategories] = useState([]);
   const [reviews, setReviews] = useState([]);
 
@@ -40,6 +43,15 @@ const LandingPage = () => {
   useEffect(() => {
     ReviewsController.getAllReviews(setReviews);
   }, []);
+
+  useEffect(() =>{
+    if (location.hash === '#review-section' && reviewsRef.current) {
+      reviewsRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }, [location.hash])
 
   const carouselSettings = {
     dots: true,
@@ -112,7 +124,7 @@ const LandingPage = () => {
         <div className="product-of-the-day-image">Background Image</div>
       </div>
 
-      <div className="flex column best-sellers">
+      <div className="flex column best-sellers" ref={reviewsRef} id="review-section">
         <div className="best-sellers-scrolling-wrapper">
           <Marquee autoFill={true}>
             <div className="flex best-sellers-scroll-banner-element">

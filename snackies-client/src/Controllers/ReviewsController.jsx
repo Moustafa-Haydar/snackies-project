@@ -4,7 +4,7 @@ class ReviewsController {
 
   static async getAllReviews(setReviews) {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/v0.1/user/reviews/featured');
+      const response = await axios.get('http://127.0.0.1:8000/api/v0.1/guest/reviews/featured');
       const reviews = response.data.payload;
 
       if (response.status === 200) {
