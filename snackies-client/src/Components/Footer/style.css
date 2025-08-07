@@ -1,0 +1,43 @@
+.footer-container{
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 20px 0px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.main-footer {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.about-us-section,
+.shop-section,
+.socials-section,
+.profile-section {
+    flex: 1; 
+    max-width: 230px; 
+    padding: 10px;
+    text-align: left;
+    align-items: left;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-footer a {
+    color: var(--bg-color); 
+    text-decoration: none; 
+    display: block; 
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-logo {
+    max-width: 300px;
+    height: auto;
+    margin: 10px 0;
+    display: block;
+}

@@ -1,0 +1,24 @@
+services: 
+  frontend:
+    build: ./snackies-client
+    depends_on: 
+      - backend
+    container_name: snackies-frontend
+    ports:
+      - "3000:3000"
+    restart: unless-stopped 
+    volumes:
+      - ./snackies-client:/react-app
+
+  backend:
+    build: ./snackies-server
+    # depends_on: 
+    #   - database
+    container_name: snackies-backend
+    command: php artisan queue:work
+    ports:
+    - "8000:80"
+    restart: unless-stopped 
+    volumes:
+      - ./snackies-server:/var/www/html
+

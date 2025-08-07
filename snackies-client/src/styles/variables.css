@@ -1,0 +1,18 @@
+:root {
+    /* Color Palette */
+    --primary-color: #002A3A;
+    --secondary-color: #BC4A17;
+    --tertiary-color: #9F1E24;
+    --bg-color: #FBEDCF;
+    --text-color: white;
+
+    /*Special colors*/
+    --primary-btn-hover: rgb(49, 52, 70);
+
+    /* Fonts */
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Homemade Apple', cursive;
+
+    /* Border Radius */
+    --radius: 12px;
+}

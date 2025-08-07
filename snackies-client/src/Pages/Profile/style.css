@@ -1,0 +1,103 @@
+
+.profile { 
+    width: 100%;
+    background-color: var(--bg-color);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.account-container {
+    width: 80%;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-inner-container {
+    height: 65vh;
+    width: 70%;
+    
+    border: 2px solid rgb(88, 85, 85);
+}
+
+
+.account-container-left {
+    background-color: var(--primary-color);
+    color: white;
+    padding-top: 5vh;
+    min-width: 30%;
+    max-width: 30%;
+    align-items: center;
+    gap: 10vh;
+    padding-top: 10vh;
+}
+
+.account-container-left-title {
+    font-weight: 400;
+    font-size: 1.2vw;
+}
+
+.account-container-left-links {
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--secondary-color);
+}
+
+.account-container-link {
+    color: white;
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    padding: 2vh 0;
+    border: 1px solid var(--secondary-color);
+}
+
+.account-container-link:hover {
+    cursor: pointer;
+}
+
+.account-container-link::after {
+    background-color: var(--secondary-color);
+}
+
+.account-container-right {
+    background-color: white;
+    justify-content: center;
+    gap: 5vh;
+    padding: 10vw;
+    width: 50%
+}
+
+.account-container-right-title-container {
+    text-align: center;
+}
+
+.account-container-right-title {
+    font-size: 1.3vw;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.account-inputs {
+    gap: 2vh;
+}
+
+.account-buttons {
+    justify-content: space-evenly;
+    
+}
+
+.account-container-right-notif {
+    background-color: white;
+    justify-content: start;
+    gap: 5vh;
+    padding: 3vw;
+    width: 60%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.notif-container {
+    width: 100%;
+}

@@ -1,0 +1,98 @@
+<?php
+
+namespace App\Http\Controllers\Common;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Item;
+use App\Traits\ResponseTrait;
+
+class ItemController extends Controller
+{
+    use ResponseTrait;
+
+    public function getAllItems(Request $request)
+    {
+        try {
+            $items = Item::with(['category', 'reviews'])
+                        ->where('stock', '>', 0)
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+
+            // Add review scores to each item
+            $items->each(function ($item) {
+                $item->average_rating = $item->average_rating;
+                $item->review_count = $item->review_count;
+            });
+
+            return $this->responseJSON($items, "Items retrieved successfully");
+        } catch (\Exception $e) {
+            return $this->responseJSON(null, "Error retrieving items: " . $e->getMessage(), 500);
+        }
+    }
+
+    public function getItemById(Request $request)
+    {
+        try {
+            $request->validate([
+                'item_id' => 'required|integer|exists:items,id'
+            ]);
+
+            $item = Item::with(['category', 'reviews'])
+                       ->findOrFail($request->item_id);
+
+            // Add review scores
+            $item->average_rating = $item->average_rating;
+            $item->review_count = $item->review_count;
+
+            return $this->responseJSON($item, "Item retrieved successfully");
+        } catch (\Exception $e) {
+            return $this->responseJSON(null, "Error retrieving item: " . $e->getMessage(), 500);
+        }
+    }
+
+    public function getProductOfTheDay(Request $request)
+    {
+        try {
+            // Get a random item with stock > 0 as for product of the day
+            $productOfTheDay = Item::with(['category', 'reviews'])
+                                  ->where('stock', '>', 0)
+                                  ->inRandomOrder()
+                                  ->first();
+
+            if (!$productOfTheDay) {
+                return $this->responseJSON(null, "No products available", 404);
+            }
+
+            // Add review scores
+            $productOfTheDay->average_rating = $productOfTheDay->average_rating;
+            $productOfTheDay->review_count = $productOfTheDay->review_count;
+
+            return $this->responseJSON($productOfTheDay, "Product of the day retrieved successfully");
+        } catch (\Exception $e) {
+            return $this->responseJSON(null, "Error retrieving product of the day: " . $e->getMessage(), 500);
+        }
+    }
+
+    // ADMIN METHODS
+    
+    public function getAllProducts(Request $request)
+    {
+        try {
+            // Admin can see ALL products, including those with 0 stock
+            $products = Item::with(['category', 'reviews'])
+                           ->orderBy('created_at', 'desc')
+                           ->get();
+
+            // Add review scores to each product
+            $products->each(function ($product) {
+                $product->average_rating = $product->average_rating;
+                $product->review_count = $product->review_count;
+            });
+
+            return $this->responseJSON($products, "All products retrieved successfully for admin");
+        } catch (\Exception $e) {
+            return $this->responseJSON(null, "Error retrieving products: " . $e->getMessage(), 500);
+        }
+    }
+} 

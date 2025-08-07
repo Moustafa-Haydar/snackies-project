@@ -1,0 +1,20 @@
+.checkout-label {
+    font-size: 12px;
+}
+
+.checkout-input {
+    height: 10%;
+    border-color: var(--primary-color);
+    border-radius: 8px;
+}
+
+.wide-input {
+    width: 100%;
+}
+
+.narrow-input {
+    width: 100%;
+}
+input.checkout-input.narrow-input{
+width:80%;
+}

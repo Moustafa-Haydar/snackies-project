@@ -1,0 +1,14 @@
+
+label {
+    padding-left: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.1vw;
+}
+
+input {
+    padding: 0.7rem;
+    border-radius: var(--radius);
+    border: 2px solid var(--secondary-color);
+    width: 100%;
+    font-size: 1.1vw;
+}

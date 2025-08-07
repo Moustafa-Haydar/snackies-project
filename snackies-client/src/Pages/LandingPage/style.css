@@ -1,0 +1,229 @@
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.hero-section {
+  width: 100%;
+  height: 80dvh;
+  justify-content: center;
+  gap: 15%;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  background-image: url("../../Assets/images/LandingPage/snackies_hero_background.webp");
+}
+
+.hero-section-text {
+  width: 80%;
+  text-align: left;
+  font-size: 20px;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  color: var(--primary-color);
+  font-family: var(--font-secondary);
+}
+
+.hero-section-subdiv {
+  width: 30%;
+  align-items: start;
+}
+
+.hero-items {
+  width: 33%;
+}
+
+.landing-category-title {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.landing-category-section {
+  background-color: white;
+  height: 60dvh;
+  padding: 5% 0 3%;
+  --mask: radial-gradient(35.38px at 50% 48.05px, #000 99%, #0000 101%)
+      calc(50% - 62px) 0/124px 51% repeat-x,
+    radial-gradient(35.38px at 50% -17.05px, #0000 99%, #000 101%) 50% 31px/124px
+      calc(51% - 31px) repeat-x,
+    radial-gradient(35.38px at 50% calc(100% - 48.05px), #000 99%, #0000 101%)
+      calc(50% - 62px) 100%/124px 51% repeat-x,
+    radial-gradient(35.38px at 50% calc(100% + 17.05px), #0000 99%, #000 101%)
+      50% calc(100% - 31px) / 124px calc(51% - 31px) repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  margin: -50px 0;
+}
+
+.landing-category-card {
+  background-color: var(--bg-color);
+  height: 80%;
+  width: 20%;
+  align-items: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 20px;
+}
+
+.landing-category-cards-div {
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+
+.product-of-the-day {
+  height: 95dvh;
+}
+
+.product-of-the-day-info {
+  height: 100%;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  gap: 12%;
+  background-color: var(--secondary-color);
+}
+
+.product-of-the-day-title {
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.product-of-the-day-description {
+  font-size: 20px;
+  width: 60%;
+  height: fit-content;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.product-of-the-day-image {
+  background-color: gray;
+  height: 100%;
+  width: 70%;
+}
+
+.best-sellers {
+  height: 75dvh;
+  background-color: var(--bg-color);
+  padding-top: 1%;
+  --mask: radial-gradient(34.99px at 50% 48px, #000 99%, #0000 101%)
+      calc(50% - 60px) 0/120px 100%,
+    radial-gradient(34.99px at 50% -18px, #0000 99%, #000 101%) 50% 30px/120px
+      100% repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  margin: -50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.best-sellers-cards {
+  gap: 4%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+}
+
+.best-sellers-card {
+  height: 70%;
+  width: 13%;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.best-sellers-image {
+  background-color: var(--bg-color);
+  height: 85%;
+  width: 100%;
+}
+
+.best-sellers-title {
+  font-size: 32px;
+  text-wrap: nowrap;
+}
+
+.best-sellers-star-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.best-sellers-scrolling-wrapper {
+  width: 100%;
+  height: 8%;
+}
+
+.best-sellers-scroll-banner-element {
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  margin: 0 20px;
+}
+
+.landing-reviews {
+  height: 1dvh;
+  padding: 1% 0 1%;
+  background-color: var(--secondary-color);
+  align-items: center;
+}
+
+.landing-reviews-title {
+  text-align: center;
+  padding-bottom: 1%;
+}
+
+.landing-reviews-carousel {
+  width: 80%;
+}
+
+.slider-container {
+  width: 80%;
+}
+
+.review-card-div {
+  height: 400px;
+}
+
+.review-card-div h1 {
+  background-color: var(--primary-color);
+  padding: 20px;
+  height: 100%;
+  margin: 20px;
+}
+
+.landing-review-card {
+  height: 70%;
+  max-width: 300px;
+
+  background-color: var(--primary-color);
+}
+
+.landing-review-arrows-div {
+  width: 50%;
+  justify-content: space-between;
+}
+
+.landing-review-arrow {
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.landing-review-arrow:hover {
+  cursor: pointer;
+  opacity: 60%;
+}
+
+.landing-review-buttons {
+  background: none;
+  border: none;
+}

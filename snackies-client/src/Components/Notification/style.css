@@ -1,0 +1,18 @@
+.profile-notif {
+    background-color: var(--bg-color);
+    width: 100%;
+    justify-content: space-between;
+    padding: 2%;
+    border-radius: 8px;
+}
+
+.notif-mark-as-read {
+    background: none;
+    border: none;
+    color: red;
+}
+
+.notif-mark-as-read:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
