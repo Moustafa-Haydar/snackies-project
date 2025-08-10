@@ -7,8 +7,6 @@ import { TokenContext } from "../../Contexts/TokenContext";
 import Button from "../../Components/Button/Button";
 import UserAccountInput from "../../Components/UserAccountInput/UserAccountInput";
 import UserController from "../../Controllers/UserController";
-import Notification from "../../Components/Notification/Notification";
-import NotifController from "../../Controllers/NotifController";
 
 const Profile = () => {
   // account, order_history, favorites
@@ -22,17 +20,7 @@ const Profile = () => {
   const [lastNameState, setLastNameState] = useState("");
   const [emailState, setEmailState] = useState("");
 
-  const [notif, setNotif] = useState([]);
-
   const isInitialMount = useRef(true);
-
-  useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      getNotif();
-    }
-  }, [userState]);
   
   // Decode token and get user info
   useEffect(() => {
@@ -48,11 +36,7 @@ const Profile = () => {
       setEmailState(userState.email || "");
     }
   }, [userState]);
-
-  const getNotif = async () => {
-    setNotif(await NotifController.getNotifs(tokenState, userState.id));
-  };
-
+  
   const handleSaveChanges = async () => {
     if (!userState) return;
 
@@ -85,13 +69,7 @@ const Profile = () => {
   const logout = () => {
     setUserState();
     clearToken();
-    navigate("");
-  };
-
-  const markAsRead = (id) => {
-    setNotif(prevNotif => prevNotif.filter(n => n.id !== id));
-
-    NotifController.markAsRead(tokenState, userState.id, id);
+    navigate("/login");
   };
 
   return (
@@ -126,12 +104,6 @@ const Profile = () => {
                   Favorites
                 </button>
 
-                <button
-                  className="account-container-link"
-                  onClick={() => changeCurrentLink("notifications")}
-                >
-                  Notifications
-                </button>
               </div>
             </div>
 
@@ -176,28 +148,10 @@ const Profile = () => {
               </div>
             )}
 
-            {currentLink === "notifications" && (
-              <div className="account-container-right-notif display-column">
-                <div className="account-container-right-title-container">
-                  <p className="account-container-right-title">
-                    Your Notifications
-                  </p>
-                </div>
-
-                <div className="account-inputs display-column notif-container">
-                  {notif.map((n) => {
-                    return (
-                      <Notification
-                        key={n.id}
-                        id={n.id}
-                        data={n.data["text"]}
-                        markAsRead={markAsRead}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
+            {currentLink === "order_history" && (
+              <div>Order History</div>
             )}
+
           </div>
         </div>
       </div>

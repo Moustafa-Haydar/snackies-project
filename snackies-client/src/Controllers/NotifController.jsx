@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = "http://127.0.0.1:8000/api/v0.1/user";
 
 class NotifController {
-  static async getNotifs(token, id) {
+  static async getNotifs(token, id) {    
     try {
       const response = await axios.get(`${BASE_URL}/notifications/${id}`, {
         headers: {

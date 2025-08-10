@@ -10,7 +10,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\UserController;
-
+use App\Http\Middleware\EnsureAdmin;
 
 Route::group(["prefix" => "v0.1"], function () {
 
@@ -74,7 +74,7 @@ Route::group(["prefix" => "v0.1"], function () {
 
         // ADMIN-ONLY ENDPOINTS
         Route::group(["prefix" => "admin"], function () {
-            Route::group(["middleware" => "auth:admin"], function () {
+            Route::group(["middleware" => ['auth:admin', EnsureAdmin::class]], function () {
                 Route::get("/users", [UserController::class, "getAllUsers"]);
                 Route::get("/products", [ItemController::class, "getAllProducts"]);
                 Route::get("/orders", [OrderController::class, "getAllOrders"]);

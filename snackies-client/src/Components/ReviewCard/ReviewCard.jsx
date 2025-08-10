@@ -13,7 +13,7 @@ const ReviewCard = ({ reviewText, reviewerName, productName, rating }) => {
         <p className="product-name">{productName}</p>
       </div>
       <div className="review-image-placeholder">
-        <img src="product-image" alt="product-image" className='review-product-image' />
+        <img src="product-image" alt="product-image" className='review-product-image' loading='lazy'/>
       </div>
     </div>
   );

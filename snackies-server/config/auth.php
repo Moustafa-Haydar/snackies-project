@@ -45,8 +45,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-      
+
         'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+
+        'admin' => [
             'driver' => 'jwt',
             'provider' => 'users',
         ],

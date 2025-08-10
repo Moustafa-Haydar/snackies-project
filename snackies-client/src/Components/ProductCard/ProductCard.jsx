@@ -18,7 +18,7 @@ const ProductCard = ({productId, productName, productDescription, productPrice, 
     return (
         <div className="product-card" onClick={handleCardClick}>
             <div className="product-image">
-                <img src={productImage} alt={productImage} />
+                <img src={productImage} alt={productImage} loading="lazy"/>
             </div>    
             <div className="product-details">
                 <StarRating rating={productRating} />

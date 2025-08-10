@@ -1,24 +1,63 @@
-services: 
-  frontend:
-    build: ./snackies-client
-    depends_on: 
-      - backend
-    container_name: snackies-frontend
-    ports:
-      - "3000:3000"
-    restart: unless-stopped 
-    volumes:
-      - ./snackies-client:/react-app
-
+services:
   backend:
-    build: ./snackies-server
-    # depends_on: 
-    #   - database
-    container_name: snackies-backend
-    command: php artisan queue:work
+    build:
+      context: ./snackies-server
+      dockerfile: Dockerfile
+    container_name: backend
     ports:
-    - "8000:80"
-    restart: unless-stopped 
+      - "8000:80"
     volumes:
       - ./snackies-server:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - QUEUE_CONNECTION=redis
+      - CACHE_DRIVER=redis
+      - SESSION_DRIVER=redis
+      - BROADCAST_DRIVER=redis
 
+  frontend:
+    build:
+      context: ./snackies-client
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./snackies-client:/app
+      - /app/node_modules/
+    working_dir: /app
+    command: npm run dev -- --host --force
+    depends_on:
+      - backend
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: ecommercedb
+    volumes:
+      - db-data:/var/lib/mysql
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: ""
+    depends_on:
+      - db
+
+volumes:
+  db-data:

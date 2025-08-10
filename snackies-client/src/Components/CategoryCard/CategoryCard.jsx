@@ -7,7 +7,7 @@ const CategoryCard =({imageSrc, categoryName, onClick})=>{
     return (
         <div className="categorycard-component">
             <div className="image-section">
-                <img src={imageSrc} alt={categoryName} />
+                <img src={imageSrc} alt={categoryName} loading="lazy"/>
             </div>
             <div className="button-section">
                 <Button btn_name={categoryName} onClick={onClick}/>

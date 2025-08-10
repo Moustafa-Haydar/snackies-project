@@ -36,19 +36,20 @@ class UserService
         } catch (\Exception $e) {
             return null;
         }
-
     }
 
-    public static function getNotifications($id) {
+    public static function getNotifications($id)
+    {
         $user = User::find($id);
 
         return $user->unreadNotifications;
     }
 
-    public static function markAsRead(Request $request) {
+    public static function markAsRead(Request $request)
+    {
         $user = User::find($request->userId);
 
-        foreach($user->unreadNotifications as $n) {
+        foreach ($user->unreadNotifications as $n) {
             if ($n->id == $request->notifId) {
                 $n->markAsRead();
                 return $n;

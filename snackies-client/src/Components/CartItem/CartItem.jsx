@@ -4,7 +4,7 @@ import './style.css'
 const CartItem = ({ itemImage, itemTitle, itemQuantity, removeItem, itemPrice }) => {
   return (
     <div className='flex cart-item-card'>
-        <img className='cart-item-image' src={itemImage} alt='cart item'></img>
+        <img className='cart-item-image' src={itemImage} alt='cart item' loading='lazy'></img>
 
         <div className='flex cart-item-info'>
             <h4>{itemTitle}</h4>

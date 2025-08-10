@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login';
 import Shop from './Pages/ShopPage/Shop';
 import Profile from './Pages/Profile/Profile';
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
+import Notifications from './Pages/NotificationsPage/Notifications';
 
 import './styles/index.css';
 import './styles/style.css';
@@ -26,10 +27,12 @@ function App() {
         <Route path="/cart" element={<UserCart />} />
         <Route path="/checkout" element={<Checkout />} />
 
-          <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
         <Route path="/shop" element={<Shop />}/>
         <Route path="/profile" element={<Profile />} />
+        <Route path="/notifications" element={<Notifications />}/>
         
 
         {/* Protected Routes */}
