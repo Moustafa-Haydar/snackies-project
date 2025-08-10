@@ -1,0 +1,25 @@
+
+.admin-login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.admin-login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    width: 40%;
+    padding: 12vh 0;
+    background-color: beige;
+    border-radius: 8px;
+}
+
+.admin-loginMsg {
+    font-size: 1.1vw;
+}
+

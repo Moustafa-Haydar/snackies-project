@@ -1,41 +1,50 @@
-import React , {useEffect, useState} from "react";
-import Button from "../../Components/Button/Button";
-import Input from "../../Components/Input/Input";
-import Logo from "../../Assets/logos/snackies-logo-orange-nobg.webp";
+import React , {useContext, useEffect, useState} from "react";
+import Button from "../../../Components/Button/Button";
+import Input from "../../../Components/Input/Input";
+import Logo from "../../../Assets/logos/snackies-logo-orange-nobg.webp";
+import NotificationIcon from "../../../Assets/Icons/admin-bell-solid-full (2).svg";
+import UserIcon from "../../../Assets/Icons/admin-user-solid-full (1).svg";
 
-import NotificationIcon from "../../Assets/Icons/admin-bell-solid-full (2).svg";
-import UserIcon from "../../Assets/Icons/admin-user-solid-full (1).svg";
-
-import UserController from "../../Controllers/UserController";
-import ProductsController from "../../Controllers/ProductsController";
-import OrderController from "../../Controllers/OrderController";
+import { useNavigate } from 'react-router-dom';
+import { TokenContext } from "../../../Contexts/TokenContext";
+import ProductsControllers from "../../../Controllers/AdminControllers/ProductsControllers";
+import UsersControllers from "../../../Controllers/AdminControllers/UsersControllers";
 import './style.css';
 
-const AdminDashboard = () => {
+const AdminPages = () => {
 
-    const [currentLink, setCurrentLink] = useState('products');
+    const [ currentLink, setCurrentLink ] = useState('products');
 
-    const [usersState, setUsersState] = useState([]);
-    const [productsState, setProductsState] = useState([]);
-    const [ordersState, setOrdersState] = useState([]);
+    const { tokenState, clearToken } = useContext(TokenContext);
+
+    const [ usersState, setUsersState ] = useState([]);
+    const [ productsState, setProductsState ] = useState([]);
+    const [ ordersState, setOrdersState ] = useState([]);
+
+    const navigate = useNavigate();
 
     const changeCurrentLink = (Link) => {
         setCurrentLink(Link);
     }
 
     const fetchUsers = async () => {
-        const users = await UserController.getAllUsers();
+        const users = await UsersControllers.getAllUsers(setUsersState, tokenState);
         setUsersState(users);
     }
 
     const fetchProducts = async () => {
-        await ProductsController.getAllProducts(setProductsState);
+        await ProductsControllers.getAllProducts(setProductsState, tokenState);
     }   
 
     // const fetchOrders = async () => {
     //     const orders = await OrderController.getAllOrders();
     //     console.log("test");
     // }
+
+    const logout = () => {
+        clearToken();
+        navigate("/admin");
+    }
 
 
     useEffect (() => {
@@ -55,6 +64,9 @@ const AdminDashboard = () => {
                 <input type="text" placeholder="Search" className="admin-search-bar"/>
 
                 <div className="admin-header-right-side">
+
+                    <Button btn_name={"Logout"} onClick={logout}/>
+
                     <img src={NotificationIcon} alt="" className="admin-notification-icon"/>
 
                     English
@@ -174,4 +186,4 @@ const AdminDashboard = () => {
      );
 }
  
-export default AdminDashboard;
+export default AdminPages;

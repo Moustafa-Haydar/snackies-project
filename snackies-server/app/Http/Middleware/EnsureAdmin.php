@@ -7,13 +7,18 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Traits\ResponseTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
 
 class EnsureAdmin
 {
 
     public function handle(Request $request, Closure $next): Response
     {
+        Log::info("test");
+
         $user = Auth::user();
+        Log::info($user['first_name']);
 
         if ($user->role == "admin") {
             return $next($request);

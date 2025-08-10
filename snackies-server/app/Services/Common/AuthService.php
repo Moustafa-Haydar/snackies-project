@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 use App\Http\Requests\StoreUserRequest;
 
@@ -40,6 +41,14 @@ class AuthService
     }
 
     public static function register(Request $request)
+    {
+        $data = $request->validated();
+        $data['password'] = Hash::make($data['password']);
+        $user = User::create($data);
+        return ($user);
+    }
+
+    public static function addAdminUser(Request $request)
     {
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);

@@ -7,6 +7,8 @@ use App\Services\common\AuthService;
 use App\Http\Requests\StoreUserRequest;
 use App\Traits\ResponseTrait;
 
+use Illuminate\Support\Facades\Log;
+
 class AuthController extends Controller
 {
     use ResponseTrait;
@@ -21,6 +23,12 @@ class AuthController extends Controller
     public function register(StoreUserRequest $request)
     {
         $user = AuthService::register($request);
+        return $this->responseJSON($user);
+    }
+
+    public function addAdminUser(StoreUserRequest $request)
+    {
+        $user = AuthService::addAdminUser($request);
         return $this->responseJSON($user);
     }
 

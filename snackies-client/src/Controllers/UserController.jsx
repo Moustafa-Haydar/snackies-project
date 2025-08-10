@@ -4,19 +4,6 @@ const BASE_URL = "http://127.0.0.1:8000/api/v0.1/user";
 
 class UserController {
 
-    static async getAllUsers() {
-        try {
-
-            const response = axios.get(`${BASE_URL}/users`);
-            const users = (await response).data.payload;
-            
-            return users;
-        } catch (error) {
-            console.error(error);
-            return;
-        }
-    }
-
     static async updateUser(token, id, userInfo) {
         
         try {

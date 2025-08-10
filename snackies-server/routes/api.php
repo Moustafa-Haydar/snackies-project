@@ -21,6 +21,8 @@ Route::group(["prefix" => "v0.1"], function () {
         Route::post("/login", [AuthController::class, "login"]);
         Route::post("/register", [AuthController::class, "register"]);
 
+        Route::post("/adminRegister", [AuthController::class, "addAdminUser"]);
+
         // PUBLIC PRODUCT & CATEGORY ENDPOINTS
         Route::get("/items/{id?}", [ItemController::class, "getAllItems"]);
         Route::get("/product_of_the_day", [ItemController::class, "getProductOfTheDay"]);
@@ -75,6 +77,7 @@ Route::group(["prefix" => "v0.1"], function () {
         // ADMIN-ONLY ENDPOINTS
         Route::group(["prefix" => "admin"], function () {
             Route::group(["middleware" => ['auth:admin', EnsureAdmin::class]], function () {
+
                 Route::get("/users", [UserController::class, "getAllUsers"]);
                 Route::get("/products", [ItemController::class, "getAllProducts"]);
                 Route::get("/orders", [OrderController::class, "getAllOrders"]);
